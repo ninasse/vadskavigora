@@ -3,29 +3,19 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Admin from './components/admin/Admin';
 import Home from './components/home/Home';
 import AboutUs from './components/about-us/AboutUs';
+import Header from './components/header/Header';
+import HeaderText from './components/headerText/headerText';
+import Footer from './components/footer/Footer';
+import CategoryButton from './components/categoryButton/CategoryButton';
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to vadskavigoranu.se!</h1>
-   
+      <Header />
+      <HeaderText />
+      <CategoryButton />
     <Router>
-        <header className="navbar">
-          <nav className="nav">
-            <ul>
-              <li>
-                <Link to="/">Hem</Link>             
-              </li>            
-              <li>
-                <Link to="/admin">Admin</Link>             
-              </li>
-              <li>
-                <Link to="/about-us">Om oss</Link>             
-              </li>
-            </ul>
-          </nav>
-        </header>
         <main>
           <Switch>
             <Route path="/home">
@@ -38,13 +28,19 @@ function App() {
               <AboutUs />           
             </Route>
             <Route exact path="/">
-              <Home />           
+              <Home /> 
+                      
             </Route>
           </Switch>
         </main>
+      
+      <Footer /> 
       </Router>
+
+      
     </div>
   );
+  
 }
 
 export default App;

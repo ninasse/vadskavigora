@@ -1,0 +1,35 @@
+#categoryComp {
+    width: 100%;
+}
+
+.categoryDiv {
+    width: 100%;
+    justify-content: space-between;
+    overflow: hidden;
+    display: flex;
+    
+    div {
+        width: 50%;
+        
+        button {
+            text-transform: uppercase;
+        }
+    } 
+}
+#catButtonOne {
+    background: #f5b4d2;
+    float: left;
+
+}
+#catButtonTwo {
+    background: #a1cdce;
+ 
+}
+#catButtonThree {
+    background: #fff094;
+
+}
+#catButtonFour {
+    background: #ebceff;
+ /*    margin-left: 2px; */
+}

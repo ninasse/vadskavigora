@@ -1,0 +1,21 @@
+#footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+   justify-content: space-evenly; 
+   div {
+       padding-bottom: 10px;
+   }
+}
+button {
+    font-family: 'Raleway Dots';
+    font-size: 18px;
+    color: 000000;
+    background: 000000;
+    border: none;
+    font-weight: 600;
+    }
+#buttonAdmin {
+    border-bottom: 2px #a1cdce;
+}
