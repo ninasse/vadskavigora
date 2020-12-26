@@ -22,7 +22,7 @@ export default function Suggestions(){
     console.log(suggestions);
     return(
         <React.Fragment>
-        <h1>A list of suggestions here!</h1>
+        <h1>Suggestions component</h1>
         <ul>
             {suggestions.map((suggestion: any) =>  {
                return <li key={suggestion.id}>
