@@ -1,5 +1,11 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/mixins.scss';
+
 #categoryComp {
     width: 100%;
+    @include desktop {
+        display: flex;
+    }
 }
 
 .categoryDiv {
@@ -17,19 +23,18 @@
     } 
 }
 #catButtonOne {
-    background: #f5b4d2;
+    background: var(--color-one);
     float: left;
 
 }
 #catButtonTwo {
-    background: #a1cdce;
+    background:var(--color-two);
  
 }
 #catButtonThree {
-    background: #fff094;
-
+    background:var(--color-three);
 }
 #catButtonFour {
-    background: #ebceff;
+    background:var(--color-four);
  /*    margin-left: 2px; */
 }
