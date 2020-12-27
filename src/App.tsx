@@ -15,7 +15,7 @@ function App() {
       <Header />
       <HeaderText />
       <CategoryButton />
-    <Router>
+      <Router>
         <main>
           <Switch>
             <Route path="/home">
@@ -28,16 +28,12 @@ function App() {
               <AboutUs />           
             </Route>
             <Route exact path="/">
-              <Home /> 
-                      
+              <Home />         
             </Route>
           </Switch>
         </main>
-      
       <Footer /> 
       </Router>
-
-      
     </div>
   );
   
