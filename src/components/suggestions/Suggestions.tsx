@@ -22,11 +22,25 @@ export default function Suggestions(){
     console.log(suggestions);
     return(
         <React.Fragment>
-        <h1>Suggestions component</h1>
+        <h1>Förslag</h1>
         <ul>
             {suggestions.map((suggestion: any) =>  {
-               return <li key={suggestion.id}>
-                    {suggestion.title}
+               return <li className="suggestionList" key=
+               {suggestion.id}>
+                   <div className="suggestionContDiv">
+                    <h3>{suggestion.title}
+                   </h3>
+                    <p>{suggestion.description}
+                    </p>
+                  <p>
+                {suggestion.link} 
+                  </p>
+                   </div>
+                   <div className="deleteDiv">
+                       <button className="deleteButton">
+                           Radera
+                       </button>
+                   </div>
                    
                 </li>
             })}

@@ -1,0 +1,56 @@
+@import 'src/styles/colors.scss';
+
+label {
+    color: var(--black);
+    font-weight: 600;
+    width: 100%;
+
+    p {
+        width: 100%;
+        margin-bottom: 2px;
+        text-align: left;
+        font-size: 12px;
+        padding-left: 20px;
+    }
+}
+
+
+.activity-input {
+    height: 30px;
+    border-radius: 10px;
+    width: 90%;
+}
+
+#inputTitle {
+    border-color: var(--color-one);
+}
+
+#inputDesc {
+    border-color: var(--color-two);
+}
+#inputLink {
+    border-color: var(--color-three);
+}
+fieldset {
+    border: unset;
+  p {
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 1;
+      text-transform: uppercase;
+      text-align: left;
+  }
+  #categoryDiv {
+      display:flex;
+      p {
+          width: 50%;
+      }
+  }
+}
+#saveBtn {
+    text-transform: uppercase;
+    background: var(--color-one);
+    width: 70%;
+    border-radius:10px;
+    height: 40px; 
+}

@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Header />
       <HeaderText />
-      <CategoryButton />
+      
       <Router>
         <main>
           <Switch>

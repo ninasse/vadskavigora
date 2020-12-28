@@ -1,0 +1,43 @@
+@import 'src/styles/colors.scss';
+
+
+  
+ul {
+    padding-left: 0;
+
+    .suggestionList {
+        text-align: left;
+        
+        p {
+            font-weight: 600;
+            font-size: 12px;
+        }
+    } 
+}
+
+li { 
+    font-style: 'Raleway Dots';
+    text-transform: uppercase; 
+    list-style-type: none;
+    display: flex;
+    background:var(--background-two); 
+    margin-bottom: 4px;
+}
+
+li:nth-child(odd) { background: var(--background-three); 
+}
+.suggestionContDiv {
+    float: left;
+}
+.deleteDiv {
+display: flex;
+align-items: center;
+justify-content: center;
+
+    .deleteButton {
+        background: var(--color-delete);
+        height: 30px;
+        border-radius: 15px;
+        width: 90px;
+    }
+}

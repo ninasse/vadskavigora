@@ -53,23 +53,44 @@ export default function AddActivity(props: IAddActivityProps){
         <h1>AddAcitivity component</h1>
         <form id='add-activity-form' >
             <fieldset>
-                <label htmlFor="activityTitle">TITEL</label>
-                <input type="text" name="title" className="activity-input" onChange={handleChange}/>
-                <label htmlFor="activityDescr">BESKRIVNING</label>
-                <input type="text" name="description" className="activity-input" onChange={handleChange}/>
-                <label htmlFor="activityLink">LÄNK</label>
-                <input type="text" name="link" className="activity-input"onChange={handleChange}/>
+                <div>
+                    <label htmlFor="activityTitle"><p>TITEL</p> </label>
+                    <input type="text" name="title" className="activity-input" id="inputTitle" onChange={handleChange}/>
+
+                    <label htmlFor="activityDescr"><p>BESKRIVNING</p> </label>
+                    <input type="text" name="description" className="activity-input" id="inputDesc" onChange={handleChange}/>
+
+                </div>
+
+                <div>
+
+                    <label htmlFor="activityLink"><p>LÄNK</p> </label>
+                    <input type="text" name="link" className="activity-input" id="inputLink" onChange={handleChange}/>
+
+                    <fieldset>
+                        <p>Kategori</p>
+
+                        <div id="categoryDiv">
+                            <div><input type="checkbox" name="category" value="inomhus" className="category-chekbox" onChange={handleChecked}/>
+                            <label htmlFor="indoor"><p>INOMHUS</p></label></div>
+                            
+                            <div><input type="checkbox" name="category" value="utomhus" className="category-chekbox" onChange={handleChecked}/>
+                            <label htmlFor="outdoor"><p>UTOMHUS</p></label></div>
+                            
+                            <div><input type="checkbox" name="category" value="baka" className="category-chekbox" onChange={handleChecked}/>
+                            <label htmlFor="baking"><p>BAKA</p></label></div>
+                            
+                </div>
+                
+
+                
             </fieldset>
-            <fieldset>
-                <p>Kategori</p>
-                <input type="checkbox" name="category" value="inomhus" className="category-chekbox" onChange={handleChecked}/>
-                <label htmlFor="indoor">INOMHUS</label>
-                <input type="checkbox" name="category" value="utomhus" className="category-chekbox" onChange={handleChecked}/>
-                <label htmlFor="outdoor">UTOMHUS</label>
-                <input type="checkbox" name="category" value="baka" className="category-chekbox" onChange={handleChecked}/>
-                <label htmlFor="baking">BAKA</label>
+
+                </div>
+                
             </fieldset>
-            <button type="button" onClick={createActivity}>SPARA</button>
+            
+            <button type="button" id="saveBtn" onClick={createActivity}>Skicka till Databas</button>
         </form>
         </React.Fragment>
     )

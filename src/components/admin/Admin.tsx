@@ -26,7 +26,7 @@ export default function Admin(){
 
     return (
         <React.Fragment>
-        <h1>Admin works!</h1>
+            
         <button onClick={addToDB}>OK!</button>
         <AddActivity addActivity={saveActivity}></AddActivity>
         <Suggestions></Suggestions>
