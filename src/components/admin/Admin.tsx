@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import firebase from './../../../src/firebase';
 import Activity from '../../models/Activity';
 import AddActivity from '../add-activity/AddActivity';
@@ -11,23 +10,27 @@ export default function Admin(){
 
     const [activity, setActivity] = useState(new Activity());
     const [isSaved, setIsSaved] = useState(false);
+    const db = firebase.firestore();
 
-    function saveActivity(act: Activity) {
+    console.log(isSaved);
+    function saveActivity(act: Activity, created: boolean) {
         setActivity(act);
-        setIsSaved(true);
-      }
+        setIsSaved(created);
+    }
+      
     function addToDB() {
         console.log(activity);
-       
-        const db = firebase.firestore();
-            
-        db.collection('activities').add(activity);      
+        db.collection('activities').add(activity);  
+    }
+    
+    if(isSaved) {
+        addToDB(); 
+        setIsSaved(false);  
+        console.log('SPARAR!!')
     }
 
     return (
         <React.Fragment>
-            
-        <button onClick={addToDB}>OK!</button>
         <AddActivity addActivity={saveActivity}></AddActivity>
         <Suggestions></Suggestions>
         </React.Fragment>
