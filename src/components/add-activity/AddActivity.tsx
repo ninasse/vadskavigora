@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useReducer, useState } from 'react';
+import React, { ChangeEvent, useReducer, useState } from 'react';
 import firebase from './../../../src/firebase';
 import Activity from '../../models/Activity';
 import './AddActivity.scss';
