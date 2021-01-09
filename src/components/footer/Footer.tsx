@@ -15,6 +15,9 @@ export default function Footer(){
             <div>
                 <Link to="/"><button id="buttonHome">Home</button></Link>
             </div>
+            <div>
+                <Link to="/suggestion"><button id="suggestionHome">Förslag</button></Link>
+            </div>
         </div>
     )
 }

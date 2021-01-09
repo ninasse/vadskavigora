@@ -2,7 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
-import * as firebase from 'firebase'
+import * as firebase from 'firebase/app'
+
+import "firebase/database";
+import 'firebase/firestore';
+import 'firebase/analytics';
+import 'firebase/auth';
+
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

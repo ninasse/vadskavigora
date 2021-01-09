@@ -1,14 +1,17 @@
 import firebase from 'firebase/app';
+import "firebase/database";
 import 'firebase/firestore';
+import 'firebase/analytics';
+import 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCfSpK2RqUPmOys8PprJl_311XQRyJx2lk",
-    authDomain: "vad-ska-vi-gora-nu.firebaseapp.com",
-    projectId: "vad-ska-vi-gora-nu",
-    storageBucket: "vad-ska-vi-gora-nu.appspot.com",
-    messagingSenderId: "196980201166",
-    appId: "1:196980201166:web:6285b990cf99f89f09e29f",
-    measurementId: "G-H1B8S2ER1H"
+  apiKey: "AIzaSyABqzSUg3zFO_bwHb9_9ufYx0t9IhqOF5U",
+  authDomain: "vadskavi-goranu.firebaseapp.com",
+  projectId: "vadskavi-goranu",
+  storageBucket: "vadskavi-goranu.appspot.com",
+  messagingSenderId: "206426006343",
+  appId: "1:206426006343:web:995e803394c595df88a262",
+  measurementId: "G-JCCT9EC9FZ"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

@@ -1,0 +1,10 @@
+@import 'src/styles/mixins.scss';
+
+img {
+    width: 50%;
+    margin-top: 20px;
+
+    @include desktop{
+        width: 20%;
+    }
+}
