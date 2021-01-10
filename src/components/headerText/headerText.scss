@@ -1,8 +1,43 @@
-div {
+@import 'src/styles/colors.scss';
+@import 'src/styles/mixins.scss';
+
+
+#headerTextDiv {
     width: 100%;
-    h3 {
-        font-family: 'Raleway Dots';
-        font-size: 18px;
-        text-transform: uppercase;
-    }  
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    div {
+        width: 70%;
+        margin: 0 auto;
+
+            .headerText {
+            font-family: 'Raleway Dots';
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1;
+            color: var(--black);
+            font-weight: 600;
+            margin: 0 auto;
+            display: block;
+
+           @include tablet {
+               width: 60%;
+               font-size: 14px;
+           } 
+            @include desktop {
+            width: 30%;
+            font-size: 16px; 
+            }
+        
+        } 
+        @include desktop {
+            width: unset;
+        }
+    }
+
+  
 }
+.headerText:last-child {
+    margin-top: 3px;
+}   

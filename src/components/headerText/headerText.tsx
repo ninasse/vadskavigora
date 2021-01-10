@@ -3,8 +3,12 @@ import './headerText.scss';
 
 export default function HeaderText(){
     return (
-        <div>
-            <h3>Känner du dig helt slut på ider och barnen klättrar på väggarna?Låt oss hjäpa dig. </h3>
+        <div id="headerTextDiv">
+            <div>
+                <span className="headerText"> Känner du dig helt slut på ider och barnen klättrar på väggarna? </span>
+                <span className="headerText">Låt oss hjälpa dig!</span>
+            </div>
+            
         </div>
         
     )

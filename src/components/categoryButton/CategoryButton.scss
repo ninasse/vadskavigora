@@ -3,8 +3,18 @@
 
 #categoryComp {
     width: 100%;
-    @include desktop {
+    @include tablet {
         display: flex;
+    }
+}
+.categoryDiv:first-child {
+    @include tablet {
+        margin-right: 5px;
+    }
+}
+.categoryDiv:last-child {
+    @include tablet {
+        margin-left: 5px;
     }
 }
 
@@ -21,20 +31,47 @@
             text-transform: uppercase;
         }
     } 
+   /*  @include tablet {
+        display: flex;
+    } */
+    @include tablet {
+        display:flex;
+    }
 }
 #catButtonOne {
     background: var(--color-one);
     float: left;
-
+    margin-right: 5px;
+    margin-bottom: 5px;
+    @include tablet {
+        margin-bottom: unset;
+    }
 }
 #catButtonTwo {
     background:var(--color-two);
+    margin-left: 5px;
+    margin-bottom: 5px;
+
+    @include tablet {
+        margin-bottom: unset;
+    }
  
 }
 #catButtonThree {
     background:var(--color-three);
+    margin-top: 5px;
+    margin-right: 5px;
+   
+    @include tablet {
+        margin-top: unset;
+    }
 }
 #catButtonFour {
     background:var(--color-four);
- /*    margin-left: 2px; */
+    margin-left: 5px;
+    margin-top: 5px;
+
+ @include tablet {
+     margin-top: unset;
+ }
 }

@@ -9,6 +9,7 @@ import Footer from './components/footer/Footer';
 import CategoryButton from './components/categoryButton/CategoryButton';
 import  auth  from './firebase';
 import './App.scss';
+import SuggestionComp from './components/suggestionComp/SuggestionComp';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <Route exact path="/">
               <Home />         
+            </Route>
+            <Route exact path="/suggestion">
+              <SuggestionComp />         
             </Route>
           </Switch>
         </main>
