@@ -1,0 +1,37 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/colors.scss';
+
+.activityContainer {
+    border: 2px black;
+    font-weight: 600;
+    color: var(--black);
+    display: block;
+
+    #textPresentation{
+        height: 60%;
+        display: block;
+
+        #activityTitle {
+        font-size: 30px;
+        font-weight: bold;
+        div {
+             margin-top: 40px;
+            }   
+        }
+    
+    #activityDesc {
+        padding: 15px;
+        display: block;
+    }
+   } 
+}
+.getActivityButton{
+margin-top: 100px;
+    .btn-new {
+        background: var(--color-one);
+        height: 50px;
+        border-radius: 15px;
+        width: 260px;
+        text-transform: uppercase;
+    }
+}

@@ -101,13 +101,24 @@ export default function Home(){
     return(
         <React.Fragment>
             <CategoryButton filterCategory={filterCategory}/>
-            <div className='getActivityButton'>
-                {activityPresented ? <button type='button' onClick={getActivity}>Ge mig något roligare!</button> : <button type='button' onClick={getActivity}>Ge mig nåt kul!</button>}
-            </div>
-            
+
             <div className="activityContainer">
-                {selectedActivity ? <div>{selectedActivity.title}</div> : null}
+                <div id="textPresentation">
+                   <span id="activityTitle"> {selectedActivity ? <div>{selectedActivity.title}</div> : null} </span>
+                    <div id="activityDesc"> {selectedActivity.description} </div>
+                    <div id="activityLink"> 
+                    {selectedActivity.link ? <a href={selectedActivity.link}>Mer information</a> : null }
+                    
+                    </div>
+        
+                </div>
+               
+            
+                <div className='getActivityButton'>
+                    {activityPresented ? <button type='button' className="btn-new" onClick={getActivity}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
+                </div>
             </div>
+           
         
         </React.Fragment>
         
