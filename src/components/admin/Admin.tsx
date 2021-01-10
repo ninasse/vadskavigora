@@ -21,16 +21,24 @@ export default function Admin(){
     function addToDB() {
         console.log(activity);
         db.collection('activities').add(activity);  
+         
     }
     
-    if(isSaved) {
+    if(isSaved ) {
         addToDB(); 
-        setIsSaved(false);  
+        setIsSaved(false);
         console.log('SPARAR!!')
     }
 
+    function signOut(){
+        firebase.auth().signOut();
+    }    
+    
     return (
         <React.Fragment>
+            <div>
+            <button type='button' id='adminSignOutButton' onClick={signOut}>Logga ut</button>
+            </div>
         <AddActivity addActivity={saveActivity}></AddActivity>
         <Suggestions></Suggestions>
         </React.Fragment>

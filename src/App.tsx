@@ -7,6 +7,7 @@ import Header from './components/header/Header';
 import HeaderText from './components/headerText/headerText';
 import Footer from './components/footer/Footer';
 import CategoryButton from './components/categoryButton/CategoryButton';
+import  auth  from './firebase';
 import './App.scss';
 
 function App() {
