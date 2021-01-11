@@ -7,7 +7,7 @@ export default function Suggestions(){
 
     const [suggestions, setSuggestions] = useState(Array);
 
-  useEffect(() => {
+   useEffect(() => {
       const suggestionRef = firebase.database().ref('Suggestion');
     suggestionRef.on('value', (snapshot)=> {
         const suggestions = snapshot.val();
@@ -18,7 +18,7 @@ export default function Suggestions(){
         setSuggestions(suggestionsArr)
         console.log(suggestionsArr);
     });
-  }, []);
+  }, []); 
 
 
     /* useEffect(() => {
