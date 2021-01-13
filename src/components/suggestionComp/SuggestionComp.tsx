@@ -8,20 +8,20 @@ import firebase from './../../../src/firebase';
 
 export default function SuggestionComp(){
 
-     const [suggestion, setSuggestion]= useState(new Suggestion());
+     const [suggestionC, setSuggestionC]= useState(new Suggestion());
 
     const [isSaved, setIsSaved] = useState(false);
     const db = firebase.database();
 
     console.log(isSaved);
      function saveSuggestion(act: Suggestion, created:boolean) {
-         setSuggestion(act);
+         setSuggestionC(act);
          setIsSaved(created);
          }
 
     function addToDB(){
-        console.log(suggestion);
-        db.ref('Suggestion').push(suggestion);
+        console.log(suggestionC);
+        db.ref('Suggestion').push(suggestionC);
         
     }
     

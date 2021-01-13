@@ -7,7 +7,21 @@ export default function Suggestions(){
 
     const [suggestions, setSuggestions] = useState(Array);
 
-    useEffect(() => {
+   useEffect(() => {
+      const suggestionRef = firebase.database().ref('Suggestion');
+    suggestionRef.on('value', (snapshot)=> {
+        const suggestions = snapshot.val();
+        const suggestionsArr = []
+        for(let id in suggestions){
+            suggestionsArr.push(suggestions[id]);
+        }
+        setSuggestions(suggestionsArr)
+        console.log(suggestionsArr);
+    });
+  }, []); 
+
+
+    /* useEffect(() => {
      firebase
      .firestore()
      .collection('suggestions')
@@ -19,12 +33,13 @@ export default function Suggestions(){
         setSuggestions(suggestionsArr)
      })
     },[])
-    console.log(suggestions);
+    console.log(suggestions); */
+
     return(
         <React.Fragment>
         <h1>Förslag</h1>
         <ul>
-            {suggestions.map((suggestion: any) =>  {
+            {suggestions.map((suggestion : any) =>  {
                return <li className="suggestionList" key=
                {suggestion.id}>
                    <div className="suggestionContDiv">
@@ -37,7 +52,7 @@ export default function Suggestions(){
                   </p>
                    </div>
                    <div className="deleteDiv">
-                       <button className="deleteButton">
+                       <button className="deleteButton" >
                            Radera
                        </button>
                    </div>
