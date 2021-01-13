@@ -15,10 +15,10 @@ export default function Admin(){
     const [isSaved, setIsSaved] = useState(false);
     const [currentUser, setCurrentUser] = useState(authContext.user);
     const db = firebase.firestore();
-    const userEmail = authContext.user?.email;
+    const userEmail = auth.currentUser?.email;
     
     console.log(isSaved);
-    console.log(authContext.user?.email);
+    console.log(auth.currentUser?.email);
     function saveActivity(act: Activity, created: boolean) {
         setActivity(act);
         setIsSaved(created);
