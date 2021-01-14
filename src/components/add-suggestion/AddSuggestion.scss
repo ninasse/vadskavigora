@@ -1,0 +1,50 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/mixins.scss';
+
+#suggestionContainer {
+    @include desktop {
+        display: flex;
+    }
+}
+
+#inputDesc {
+    height: 50px;
+}
+
+#reviewSuggestion {
+max-width: 100%;
+    h3 {
+        font-weight: bold;
+    }
+    p:first-child {
+        word-break: break-all;
+    }
+ 
+}
+#addSuggestion {
+    
+    @include desktop {
+        width: 50%;
+    }
+}
+#reviewSuggestion {
+
+    @include desktop;
+    width: 50%;
+}
+
+.inputSectionSugg {
+    @include desktop {
+        width: 50%;
+    }
+}
+#reviewBtn {
+
+  @include desktop {
+      width: 50%;
+  }  
+
+  .saveBtnSugg {
+      width: 45%;
+  }
+}

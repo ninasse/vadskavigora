@@ -16,7 +16,8 @@ const [isCreated, setIsCreated] = useState(false)
 
 const [suggestions, setSuggestions] = useState<Suggestion[]>([]); 
 const [suggestionId, setSuggestionId] = useState(Number);
-
+const [showDiv, setShowDiv] = useState(false);
+const [hideBtn, sethideBtn] = useState (true);
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
@@ -47,26 +48,58 @@ const [suggestionId, setSuggestionId] = useState(Number);
       props.addSuggestion(suggestion, isCreated)
         setIsCreated(true);
         resetForm();
+        setShowDiv(false);
+        sethideBtn(true);
     }
 
 if (suggestions.length >= 1) {
     addId();
 }
 
+function showHide(){
+    setShowDiv(true);
+    sethideBtn(false);
+}
     return(
         <React.Fragment>
-        <h1>ADD SUGGEASTION</h1>
+    <div id="suggestionContainer">
         
-            <label htmlFor="suggestionTitle"><p>TITEL</p> </label>
-            <input type="text" name="title" className="suggestion-input" id="inputTitle" onChange={handleChange}/>
+            <div id="addSuggestion">
+                <fieldset>
+                    <div className="inputSection inputSectionSugg">
+                        <label htmlFor="suggestionTitle"><p>TITEL</p> </label>
+                    <input type="text" name="title" className="activity-input inputTitle" id="inputTitle" onChange={handleChange}/>
+                    </div>
+                    <div className="inputSection inputSectionSugg">
+                    <label htmlFor="suggestionDescr"><p>BESKRIVNING</p> </label>
+                    <input type="text" name="description" className="activity-input inputDesc" id="inputDesc" onChange={handleChange}/>
+                    </div>
+                    <div className="inputSection inputSectionSugg"> 
+                    <label htmlFor="suggestionLink"><p>LÄNK</p> </label>
+                    <input type="text" name="link" className="activity-input inputLink"  onChange={handleChange}/>
+                    </div>
+                </fieldset>
+            </div>
 
-            <label htmlFor="suggestionDescr"><p>BESKRIVNING</p> </label>
-            <input type="text" name="description" className="suggestion-input" id="inputDesc" onChange={handleChange}/>
+            <div>
+            {showDiv ? 
+            <div id="reviewSuggestion" className="hideDiv">
 
-            <label htmlFor="suggestionLink"><p>LÄNK</p> </label>
-            <input type="text" name="link" className="suggestion-input" id="inputLink" onChange={handleChange}/>
+                    <h3>{ suggestion.title}</h3> 
+                    <p>{suggestion.description}</p>
+                    <p>{suggestion.link}</p>
 
-            <button type="button" id="saveBtn" onClick={createSuggestion}>Skicka till Databas</button>
+                    <button type="button" className="saveBtn" onClick={createSuggestion}>Skicka till Databas</button>
+                
+                </div> : null
+                } ;
+            </div>
+            <div id="reviewBtn">
+            {hideBtn ? 
+                <button type="button" className="saveBtn saveBtnSugg" onClick={showHide}>Granska Förslag</button> : null
+                }
+            </div>
+    </div>
         </React.Fragment>
         
 

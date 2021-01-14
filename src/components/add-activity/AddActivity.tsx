@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useReducer, useState } from 'react';
-import firebase from './../../../src/firebase';
+import firebase from '../../firebase';
 import Activity from '../../models/Activity';
 import './AddActivity.scss';
 
@@ -15,6 +15,7 @@ export default function AddActivity(props: IAddActivityProps){
     const [dataCollected, setDataCollected] = useState(false);
     const [activities, setActivities] = useState<Activity[]>([]);
     const [activityId, setActivityId] = useState(Number);
+    
     
     function addId() {
         let lastActivity : Activity = activities[activities.length -1];
@@ -89,33 +90,72 @@ export default function AddActivity(props: IAddActivityProps){
         {!activityFormRender ? <button type='button' id="saveBtn" onClick={showForm}>Skapa något nytt!</button> : <form id='add-activity-form' >
             <fieldset>
                 <div> 
-                    <label htmlFor="activityTitle"><p>TITEL</p> </label>
-                    <input type="text" name="title" className="activity-input" id="inputTitle" onChange={handleChange}/>
+                    <div className="inputSection">
+                        <label htmlFor="activityTitle"><p>TITEL</p> </label>
+                    <input type="text" name="title" className="activity-input inputTitle" onChange={handleChange}/>
+                    </div>
+
+                    <div className="inputSection">
 
                     <label htmlFor="activityDescr"><p>BESKRIVNING</p> </label>
-                    <input type="text" name="description" className="activity-input" id="inputDesc" onChange={handleChange}/>
+                    <input type="text" name="description" className="activity-input inputDesc" onChange={handleChange}/>
 
-                    <label htmlFor="activityLink"><p>LÄNK</p> </label>
-                    <input type="text" name="link" className="activity-input" id="inputLink" onChange={handleChange}/>
+                    </div>
+                    <div className="inputSection">
+                        <label htmlFor="activityLink"><p>LÄNK</p> </label>
+                    <input type="text" name="link" className="activity-input inputLink" onChange={handleChange}/>
+                    </div>
+                    
                 </div>
             </fieldset>
+
+
             <fieldset>
                 <div>
-                    <p>Kategori</p>
-
                     <div id="categoryDiv">
-                        <div><input type="checkbox" name="category" value="inomhus" className="category-chekbox" onChange={handleChecked}/>
-                        <label htmlFor="indoor"><p>INOMHUS</p></label></div>
+                       <div>
+                           <div>
+                               <input type="checkbox" name="category" value="inomhus" className="category-checkbox"  onChange={handleChecked}/>
+                           </div>
+                           <div>
+                               <label htmlFor="indoor" className="check-label" >
+                            <span className="span-checkbox"></span>
+                                <p>INOMHUS</p>
+                            </label>
+                           </div>
+                           
                             
-                        <div><input type="checkbox" name="category" value="utomhus" className="category-chekbox" onChange={handleChecked}/>
-                        <label htmlFor="outdoor"><p>UTOMHUS</p></label></div>
+                       </div>
+
+                        <div>
+                            <div>
+                                <input type="checkbox" name="category" value="utomhus" className="category-checkbox" onChange={handleChecked}/>
+                            </div>
+                            <div>
+                                <label htmlFor="outdoor" className="checkbox-label">
+                                <p>UTOMHUS</p>
+                            </label>
+                            </div>
                             
-                        <div><input type="checkbox" name="category" value="baka" className="category-chekbox" onChange={handleChecked}/>
-                        <label htmlFor="baking"><p>BAKA</p></label></div>
+                        </div>
+                        
+                        <div>
+                            <div>
+                                <input type="checkbox" name="category" value="baka" className="category-chekbox" onChange={handleChecked}/>
+                            </div>
+                            <div>
+                                <label htmlFor="baking" className="checkbox-label">
+                                <p>BAKA</p>
+                            </label> 
+                            </div>
+                            
+                        </div>
                     </div>   
                 </div> 
+
+
             </fieldset>
-            <button type="button" id="saveBtn" onClick={createActivity}>Skicka till Databas</button>
+            <button type="button" className="saveBtn" onClick={createActivity}>Skicka till Databas</button>
         </form>}
 
         </React.Fragment>

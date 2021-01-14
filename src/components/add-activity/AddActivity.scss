@@ -1,4 +1,5 @@
 @import 'src/styles/colors.scss';
+@import 'src/styles/mixins.scss';
 
 label {
     color: var(--black);
@@ -11,9 +12,9 @@ label {
         text-align: left;
         font-size: 12px;
         padding-left: 20px;
+
     }
 }
-
 
 .activity-input {
     height: 30px;
@@ -21,14 +22,15 @@ label {
     width: 90%;
 }
 
-#inputTitle {
+.inputTitle {
     border-color: var(--color-one);
 }
 
-#inputDesc {
+.inputDesc {
     border-color: var(--color-two);
+     word-break: break-all;
 }
-#inputLink {
+.inputLink {
     border-color: var(--color-three);
 }
 fieldset {
@@ -42,15 +44,36 @@ fieldset {
   }
   #categoryDiv {
       display:flex;
+      justify-content: center;
       p {
           width: 50%;
       }
   }
 }
-#saveBtn {
+.saveBtn {
     text-transform: uppercase;
     background: var(--color-one);
     width: 70%;
     border-radius:10px;
     height: 40px; 
+
+    @include tablet {
+        width: 50%;
+    }
+    @include desktop {
+        width: 20%;
+    }
 }
+
+.inputSection {
+    width: 100%;
+    margin: 0 auto;
+
+    @include tablet {
+        width: 50%;
+    }
+    @include desktop {
+        width: 20%;
+    }
+}
+
