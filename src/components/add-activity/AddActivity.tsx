@@ -15,6 +15,9 @@ export default function AddActivity(props: IAddActivityProps){
     const [dataCollected, setDataCollected] = useState(false);
     const [activities, setActivities] = useState<Activity[]>([]);
     const [activityId, setActivityId] = useState(Number);
+    const [inputsValid, setInputsValid] = useState(false);
+    const [checkBoxValid, setCheckboxValid] = useState(false);
+    const [formValid, setFormValid] = useState(false);
     
     function addId() {
         let lastActivity : Activity = activities[activities.length -1];
@@ -38,26 +41,57 @@ export default function AddActivity(props: IAddActivityProps){
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const { name, value } = e.target;
+        let errors = activity.errors;
+
+        switch (name) {
+            case "title":
+              errors.errTitle =
+                !value ? "OOPS! Du glömde fylla i fältet för Titel" : "";
+              break;
+            case "description":
+               errors.errDescription =
+               !value ? "Fyll i med en bra beskrivning tack!" : 
+                value.length < 5 ? "Behöver nog en tydligare beskrivning, Tack!" : "";
+              break;
+            default:
+              break;
+          }
+        
+      if(!errors.errTitle && !errors.errDescription ) { 
+          setInputsValid(true) 
+        } else {
+          setInputsValid(false);
+          setFormValid(false);
+        }
         setActivity({[name]: value, ID: activityId} as any);
     }
 
     function handleChecked(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const value = e.target.value;
-       
+        const errors = activity.errors;
+        console.log(activity.category);
+        
         if(e.target.checked){
-            let filtered = activity.category.filter(v => v !== value);
+            let filtered = activity.category.filter(v => v !== value );
             filtered.push(value);
             activity.category = filtered;
             console.log(filtered);
 
         } else {
-           let filtered = activity.category.filter(v => v !== value);
-           activity.category = filtered;
-           console.log(filtered);
+            let filtered = activity.category.filter(v => v !== value);
+            activity.category = filtered;
+            console.log(filtered);
         }
-        setIsCreated(true);
-        setActivity({category: activity.category} as any)
+        activity.category.length < 2 ? errors.errCategory = 'Välj minst en kategori!': errors.errCategory = '';
+
+        if(!errors.errCategory) {
+            setCheckboxValid(true)
+        } else {
+            setCheckboxValid(false);
+            setFormValid(false);
+        }  
+        setActivity({category: activity.category} as any);
     }
 
     function showForm() {
@@ -76,8 +110,15 @@ export default function AddActivity(props: IAddActivityProps){
                 setDataCollected(true);
             }
         setActivityFormRender(true);
-        setActivity({category: []} as any);
+        setActivity({category: ['alla']} as any);
     }
+
+    if(inputsValid && checkBoxValid){
+        setIsCreated(true);
+        setFormValid(true);
+        setInputsValid(false);
+        setCheckboxValid(false);
+    } 
 
     if(activities.length >= 1 && dataCollected) {
         addId();
@@ -85,14 +126,16 @@ export default function AddActivity(props: IAddActivityProps){
     } 
     
     return(
-        <React.Fragment>
+        <>
         {!activityFormRender ? <button type='button' id="saveBtn" onClick={showForm}>Skapa något nytt!</button> : <form id='add-activity-form' >
             <fieldset>
                 <div> 
                     <label htmlFor="activityTitle"><p>TITEL</p> </label>
+                    <p>{activity.errors.errTitle}</p>
                     <input type="text" name="title" className="activity-input" id="inputTitle" onChange={handleChange}/>
 
                     <label htmlFor="activityDescr"><p>BESKRIVNING</p> </label>
+                    <p>{activity.errors.errDescription}</p>
                     <input type="text" name="description" className="activity-input" id="inputDesc" onChange={handleChange}/>
 
                     <label htmlFor="activityLink"><p>LÄNK</p> </label>
@@ -104,6 +147,7 @@ export default function AddActivity(props: IAddActivityProps){
                     <p>Kategori</p>
 
                     <div id="categoryDiv">
+                        <p>{activity.errors.errCategory}</p>
                         <div><input type="checkbox" name="category" value="inomhus" className="category-chekbox" onChange={handleChecked}/>
                         <label htmlFor="indoor"><p>INOMHUS</p></label></div>
                             
@@ -115,9 +159,8 @@ export default function AddActivity(props: IAddActivityProps){
                     </div>   
                 </div> 
             </fieldset>
-            <button type="button" id="saveBtn" onClick={createActivity}>Skicka till Databas</button>
+            <button type="button" id="saveBtn" disabled={!formValid} onClick={createActivity}>Skicka till Databas</button>
         </form>}
-
-        </React.Fragment>
+        </>
     )
 }
