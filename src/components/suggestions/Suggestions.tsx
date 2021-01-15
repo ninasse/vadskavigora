@@ -1,5 +1,4 @@
 import React, {useState, useEffect, } from 'react';
-import { IAddSuggestionProps } from '../add-suggestion/AddSuggestion';
 import firebase from '../../firebase';
 import Suggestion from './../../models/Suggestion';
 import './Suggestions.scss';
@@ -9,55 +8,39 @@ export interface ISuggestionsProps {
 }
 export default function Suggestions(props: ISuggestionsProps){
 
-    const [suggestions, setSuggestions] = useState(Array);
+    const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
     const [isClicked, setIsClicked] = useState(false);
+    const suggestionsRef = firebase.database().ref('Suggestions');
 
    useEffect(() => {
-      const suggestionRef = firebase.database().ref('Suggestion');
+    
+    suggestionsRef.on('value', (snapshot)=> {
+        const suggestions = snapshot.val();
+        const suggestionsArr: Suggestion[] = []
+        for(let i in suggestions){
+            suggestionsArr.push(suggestions[i]);
+        }
+        setSuggestions(suggestionsArr)  
+        })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []); 
 
-    suggestionRef.on('value', (snapshot)=> {
-     
-         const suggestions = snapshot.val();
-        const suggestionsArr = []
-         for(let id in suggestions){
-            suggestionsArr.push(suggestions[id]);
-        }  
-        setSuggestions(suggestionsArr)
-      
-        console.log(suggestions);
-        
-    })
-  }, []); 
-
-
-    /* useEffect(() => {
-     firebase
-     .firestore()
-     .collection('suggestions')
-     .onSnapshot((snapshot) => {
-        const suggestionsArr = snapshot.docs.map((doc: any) => ({
-            id: doc.id,
-            ...doc.data()
-        }))
-        setSuggestions(suggestionsArr)
-     })
-    },[])
-    console.log(suggestions); */
     
     function liClicked() {
-
         setIsClicked(true);
     }
+
     if (isClicked){
         props.suggestionSelected(isClicked)
     }
+
     return(
-        <React.Fragment>
+        <>
         <h1>Förslag</h1>
         <ul>
             {suggestions.map((suggestion : any) =>  {
                return <li className="suggestionList" onClick={liClicked} key=
-               {suggestion.id}>
+               {suggestion.ID}>
                    <div className="suggestionContDiv">
                     <h3>{suggestion.title}
                    </h3>
@@ -71,11 +54,10 @@ export default function Suggestions(props: ISuggestionsProps){
                        <button className="deleteButton" >
                            Radera
                        </button>
-                   </div>
-                   
+                   </div>   
                 </li>
             })}
         </ul>
-        </React.Fragment>
+        </>
     )
 }

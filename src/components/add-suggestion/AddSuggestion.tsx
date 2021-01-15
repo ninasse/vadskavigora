@@ -7,15 +7,12 @@ export interface IAddSuggestionProps {
     addSuggestion(act: Suggestion, isCreated: boolean): void;
 }
 
-
 export default function AddSuggestion(props: IAddSuggestionProps){
     const [suggestion, setSuggestion] = useReducer((state: Suggestion, newState: Suggestion)=> ({...state, ...newState}), new Suggestion());
     const [isCreated, setIsCreated] = useState(false);
-    const [suggestions, setSuggestions] = useState<Suggestion[]>([]); 
-    const [suggestionId, setSuggestionId] = useState(Number);
     const [showDiv, setShowDiv] = useState(false);
     const [hideBtn, sethideBtn] = useState (true);
-
+    const suggestionId = database.ref('Suggestions').push().key;
    
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
@@ -30,36 +27,17 @@ export default function AddSuggestion(props: IAddSuggestionProps){
         Array.from(document.querySelectorAll("input")).forEach( input => (input.value = ""));
      
     }
-    function addId(){
-        let lastSuggestion : Suggestion = suggestions[suggestions.length-1];
-        setSuggestionId(lastSuggestion.ID +1)
-        console.log(suggestions)
-    }
-
-/* firebase.database().ref('Suggestion').on('value', (snapshot)=> {
-    console.log(snapshot.val());
-    const suggestionItem = snapshot.val();
-    const suggestionList = []
-    for(let id in suggestionItem){
-        suggestionList.push(suggestionItem[id]);
-    }
-    console.log(suggestionItem)
-   
-}) */
+ 
     function createSuggestion(){
-      props.addSuggestion(suggestion, isCreated)
+        props.addSuggestion(suggestion, isCreated);
+        database.ref('Suggestions').push(suggestion);
         setIsCreated(true);
         resetForm();
         setShowDiv(false);
         sethideBtn(true);
     }
 
-    if (suggestions.length >= 1) {
-        addId();
-    }
-
-    function addSuggestion(){
-        database.ref().child('Suggestion')
+    function showSuggestion(){
         setShowDiv(true);
         sethideBtn(false);
     }
@@ -94,12 +72,10 @@ export default function AddSuggestion(props: IAddSuggestionProps){
             </div>
             <div id="reviewBtn">
             {hideBtn ? 
-                <button type="button" className="saveBtn saveBtnSugg" onClick={addSuggestion}>Granska Förslag</button> : null
+                <button type="button" className="saveBtn saveBtnSugg" onClick={showSuggestion}>Granska Förslag</button> : null
                 }
             </div>
         </div>
         </>
-        
-
     )
 }

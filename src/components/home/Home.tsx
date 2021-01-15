@@ -37,8 +37,6 @@ export default function Home(){
             })
     }, []);
 
-    
-
     function getActivity() {
         let actID = sessionStorage.getItem('ShownActivity');
         console.log('FRÅN GETACTIVITY',selectedCategory);
