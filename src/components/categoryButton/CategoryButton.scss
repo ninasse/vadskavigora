@@ -1,84 +1,85 @@
-@import 'src/styles/colors.scss';
-@import 'src/styles/mixins.scss';
+@import "src/styles/colors.scss";
+@import "src/styles/mixins.scss";
 
 #categoryComp {
-    width: 100%;
-    @include tablet {
-        display: flex;
-    }
+  width: 100%;
+  @include tablet {
+    display: flex;
+  }
 }
 .categoryDiv:first-child {
-    @include tablet {
-        margin-right: 5px;
-    }
+  @include tablet {
+    margin-right: 5px;
+  }
 }
 .categoryDiv:last-child {
-    @include tablet {
-        margin-left: 5px;
-    }
+  @include tablet {
+    margin-left: 5px;
+  }
 }
 
 .categoryDiv {
-    width: 100%;
-    justify-content: space-between;
-    overflow: hidden;
-    display: flex;
-    
-    div {
-        width: 50%;
-        
-        button {
-            text-transform: uppercase;
-        }
-    } 
-   /*  @include tablet {
+  width: 100%;
+  justify-content: space-between;
+  overflow: hidden;
+  display: flex;
+
+  div {
+    width: 50%;
+
+    button {
+      text-transform: uppercase;
+    }
+  }
+
+  .btnClicked {
+    box-shadow: 0 10px 40px #cc0f0fa6;
+    border: 1px solid red;
+  }
+  .unclicked {
+    box-shadow: unset;
+  }
+
+  /*  @include tablet {
         display: flex;
     } */
-    @include tablet {
-        display:flex;
-    }
+  @include tablet {
+    display: flex;
+  }
 }
-#catButtonOne {
-    background: var(--color-one);
-    float: left;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    @include tablet {
-        margin-bottom: unset;
-    }
+#alla {
+  background: var(--color-one);
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  @include tablet {
+    margin-bottom: unset;
+  }
 }
-#catButtonTwo {
-    background:var(--color-two);
-    margin-left: 5px;
-    margin-bottom: 5px;
+#inomhus {
+  background: var(--color-two);
+  margin-left: 5px;
+  margin-bottom: 5px;
 
-    @include tablet {
-        margin-bottom: unset;
-    }
- 
+  @include tablet {
+    margin-bottom: unset;
+  }
 }
-#catButtonThree {
-    background:var(--color-three);
-    margin-top: 5px;
-    margin-right: 5px;
-   
-    @include tablet {
-        margin-top: unset;
-    }
-}
-#catButtonFour {
-    background:var(--color-four);
-    margin-left: 5px;
-    margin-top: 5px;
+#utomhus {
+  background: var(--color-three);
+  margin-top: 5px;
+  margin-right: 5px;
 
- @include tablet {
-     margin-top: unset;
- }
+  @include tablet {
+    margin-top: unset;
+  }
 }
- .btn-style {
-    box-shadow: 0 10px 40px #cc0f0fa6;
- }
- 
- .unclicked {
-    box-shadow: unset  
- }
+#baka {
+  background: var(--color-four);
+  margin-left: 5px;
+  margin-top: 5px;
+
+  @include tablet {
+    margin-top: unset;
+  }
+}

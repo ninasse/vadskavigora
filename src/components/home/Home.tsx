@@ -51,15 +51,19 @@ export default function Home(){
             setSelectedActivity(allActivities[randomNumber]);
             console.log(allActivities[randomNumber].title, allActivities[randomNumber].ID); 
         }
+
+        /* if (actID === String(selectedActivity.ID)){
+           searchAgain();
+       }; */ 
+
         sessionStorage.setItem('ShownActivity', String(selectedActivity.ID));
         setAllSelected(true); 
         setNotAllSelected(false); 
         setActivityPresented(true);
         setRandomNumber(Number);
-        setSearchDone(true); 
-        /* if (actID === String(selectedActivity.ID)){
-           searchAgain();
-       }; */ 
+        setSearchDone(true);
+        console.log(actID) 
+         
     }
     
     function createIdNo(){
@@ -85,7 +89,7 @@ export default function Home(){
             let filteredCatList : Activity[]= [];
             allActivities.forEach((a: Activity) => {
                if(a.category.includes(selectedCategory)) {
-                    filteredCatList.push(a)
+                    filteredCatList.push(a);
                 }
             });
             setFilteredActivities(filteredCatList);
@@ -99,13 +103,13 @@ export default function Home(){
                 setNotAllSelected(true);
                 setIsCategorySelected(true);
                 createIdNo();
-                return
+                return;
             } 
             if(selectedCategory === 'alla'){
                 setAllSelected(true); 
                 createIdNo();
                 getActivity();
-                return
+                return;
             } 
         }
     }
@@ -122,22 +126,22 @@ export default function Home(){
     return(
         <React.Fragment>
             <CategoryButton filterCategory={filterCategory}/>
-
             <div className="activityContainer">
+            {allActivities.length <= 0 ? <div>Här lägger vi in en Välkomsttext</div>: null}   
+            {allActivities.length <= 0  && searchDone ? <div>Hoppsan! Finns inget roligt att visa just nu...</div>: null}
+            {selectedActivity && allActivities.length > 0 ? 
                 <div id="textPresentation">
-                   <span id="activityTitle"> {selectedActivity ? <div>{selectedActivity.title}</div> : null} </span>
+                   <span id="activityTitle"> <div>{selectedActivity.title}</div> </span>
                     <div id="activityDesc"> {selectedActivity.description} </div>
                     <div id="activityLink"> 
                     {selectedActivity.link ? <a href={selectedActivity.link}>Mer information</a> : null }
                     </div>
                 </div>
-               
+               : <div></div>} 
                 <div className='getActivityButton'>
                     {activityPresented ? <button type='button' className="btn-new" onClick={searchAgain}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
                 </div>
             </div>
-           
-       
         </React.Fragment>
         
     )

@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import firebase , {auth} from './../../../src/firebase';
 import {useHistory} from 'react-router-dom';
 import Activity from '../../models/Activity';
@@ -28,8 +28,8 @@ export default function Admin(){
       
     function addToDB() {
         console.log(activity);
-        db.collection('activities').add(activity);  
-         
+        db.collection('activities').add(activity);
+        setIsSaved(false);    
     }
 
     function signOut(){
@@ -39,23 +39,21 @@ export default function Admin(){
         })
      } 
 
-     
-    
-    if(isSaved ) {
-        addToDB(); 
-        setIsSaved(false);
-        console.log('SPARAR!!')
-    }
-/* 
-    function signOut(){
-        firebase.auth().signOut();
-    }   */  
     function setSelected(clicked : boolean){
         setIsSelected(clicked);
        
-    
         console.log(isSelected);
     }
+
+    useEffect(() => {
+        if(isSaved ) {
+            addToDB(); 
+            console.log('SPARAR!!')
+        }
+        setIsSaved(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isSaved]);
+
     return (
         <React.Fragment>
            <div>
