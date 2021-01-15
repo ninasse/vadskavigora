@@ -3,19 +3,21 @@ import React, { useState, MouseEvent, useEffect } from 'react';
 import './CategoryButton.scss';
 
 export interface ICategoryButtonsProps {
-    filterCategory(category: string): void;
+    filterCategory(category: string, isSelected: boolean): void;
 }
 export default function CategoryButton(props: ICategoryButtonsProps){
     const [selectedCategory, setSelectedCategory] = useState('');
+    const [selected, setSelected] = useState(false);
 
     function saveCategory(e: MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
         let value = (e.target as HTMLButtonElement).value
         setSelectedCategory(value);
+        setSelected(true);
     }
     
     function sendCategory(){
-        props.filterCategory(selectedCategory);
+        props.filterCategory(selectedCategory, selected);
     }
     
     useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useState, MouseEvent, useReducer } from 'react';
+import React, { ChangeEvent, useContext, useState, MouseEvent, useReducer} from 'react';
 import { useHistory } from 'react-router-dom';
 import {auth} from '../../firebase'
 import {AuthContext} from '../../contexts/AuthContext';
@@ -30,6 +30,7 @@ export default function LogIn(){
             console.log('RES -->', res);
             authContext.setUser(res);
             history.push('/admin');
+            setUserValues({email: '', password: ''});
             }).catch(err => {
                 console.log(err.message);
                 setError(err.message)
