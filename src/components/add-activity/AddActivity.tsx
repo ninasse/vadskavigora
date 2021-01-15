@@ -188,10 +188,7 @@ export default function AddActivity(props: IAddActivityProps){
                         </div>
                     </div>   
                 </div> 
-
-
-            </fieldset>
-        
+            </fieldset>       
             <button type="button" className="saveBtn" disabled={!formValid} onClick={createActivity}>Skicka till Databas</button>
         </form>}
         </>
