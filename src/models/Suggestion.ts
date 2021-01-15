@@ -1,5 +1,5 @@
 export default class Suggestion {
-    ID: number = 0;
+    ID: string = '';
     title: string = '';
     link: string = '';
     description: string = '';
