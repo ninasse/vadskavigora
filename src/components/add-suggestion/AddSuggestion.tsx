@@ -64,7 +64,7 @@ export default function AddSuggestion(props: IAddSuggestionProps){
         sethideBtn(false);
     }
     return(
-        <>
+    <React.Fragment>
         <div id="suggestionContainer">        
             <div id="addSuggestion">
                 <fieldset>
@@ -98,7 +98,7 @@ export default function AddSuggestion(props: IAddSuggestionProps){
                 }
             </div>
         </div>
-        </>
+    </React.Fragment>
         
 
     )
