@@ -8,23 +8,24 @@ export interface IAddSuggestionProps {
 
 
 export default function AddSuggestion(props: IAddSuggestionProps){
-const [suggestion, setSuggestion] = useReducer((state: Suggestion, newState: Suggestion)=> ({...state, ...newState}), new Suggestion());
-
-const [isCreated, setIsCreated] = useState(false)
-;
-
-const [suggestions, setSuggestions] = useState<Suggestion[]>([]); 
-const [suggestionId, setSuggestionId] = useState(Number);
-const [showDiv, setShowDiv] = useState(false);
-const [hideBtn, sethideBtn] = useState (true);
+    const [suggestion, setSuggestion] = useReducer((state: Suggestion, newState: Suggestion)=> ({...state, ...newState}), new Suggestion());
+    const [isCreated, setIsCreated] = useState(false);
+    const [suggestions, setSuggestions] = useState<Suggestion[]>([]); 
+    const [suggestionId, setSuggestionId] = useState(Number);
+    const [showDiv, setShowDiv] = useState(false);
+    const [hideBtn, sethideBtn] = useState (true);
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const { name, value } = e.target;
         setSuggestion({[name]: value, ID: suggestionId} as any);
     }
+    function handleText(e: ChangeEvent<HTMLTextAreaElement>) {
+        e.preventDefault(); 
+        setSuggestion({description: e.target.value} as any);
+    }
     function resetForm(){
-        Array.from(document.querySelectorAll("input")).forEach( input => (input.value =""));
+        Array.from(document.querySelectorAll("input")).forEach( input => (input.value = ""));
      
     }
     function addId(){
@@ -51,18 +52,17 @@ const [hideBtn, sethideBtn] = useState (true);
         sethideBtn(true);
     }
 
-if (suggestions.length >= 1) {
-    addId();
-}
+    if (suggestions.length >= 1) {
+        addId();
+    }
 
-function showHide(){
-    setShowDiv(true);
-    sethideBtn(false);
-}
+    function showHide(){
+        setShowDiv(true);
+        sethideBtn(false);
+    }
     return(
-        <React.Fragment>
-    <div id="suggestionContainer">
-        
+        <>
+        <div id="suggestionContainer">        
             <div id="addSuggestion">
                 <fieldset>
                     <div className="inputSection inputSectionSugg">
@@ -71,7 +71,7 @@ function showHide(){
                     </div>
                     <div className="inputSection inputSectionSugg">
                     <label htmlFor="suggestionDescr"><p>BESKRIVNING</p> </label>
-                    <input type="text" name="description" className="activity-input inputDesc" id="inputDesc" onChange={handleChange}/>
+                    <textarea name="description" className="activity-input inputDesc" id="inputDesc" onChange={handleText}/>
                     </div>
                     <div className="inputSection inputSectionSugg"> 
                     <label htmlFor="suggestionLink"><p>LÄNK</p> </label>
@@ -79,17 +79,13 @@ function showHide(){
                     </div>
                 </fieldset>
             </div>
-
             <div>
             {showDiv ? 
             <div id="reviewSuggestion" className="hideDiv">
-
                     <h3>{ suggestion.title}</h3> 
                     <p>{suggestion.description}</p>
                     <p>{suggestion.link}</p>
-
-                    <button type="button" className="saveBtn" onClick={createSuggestion}>Skicka till Databas</button>
-                
+                    <button type="button" className="saveBtn" onClick={createSuggestion}>Skicka till Databas</button>                
                 </div> : null
                 } ;
             </div>
@@ -98,8 +94,8 @@ function showHide(){
                 <button type="button" className="saveBtn saveBtnSugg" onClick={showHide}>Granska Förslag</button> : null
                 }
             </div>
-    </div>
-        </React.Fragment>
+        </div>
+        </>
         
 
     )

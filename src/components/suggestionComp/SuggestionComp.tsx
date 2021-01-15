@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 export default function SuggestionComp(){
 
-     const [suggestionC, setSuggestionC]= useState(new Suggestion());
+    const [suggestionC, setSuggestionC]= useState(new Suggestion());
 
     const [isSaved, setIsSaved] = useState(false);
     const db = firebase.database();

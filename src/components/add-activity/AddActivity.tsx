@@ -128,7 +128,7 @@ export default function AddActivity(props: IAddActivityProps){
     
     return(
         <>
-        {!activityFormRender ? <button type='button' id="saveBtn" onClick={showForm}>Skapa något nytt!</button> : <form id='add-activity-form' >
+        {!activityFormRender ? <button type='button' className="saveBtn" onClick={showForm}>Skapa något nytt!</button> : <form id='add-activity-form' >
             <fieldset>
                 <div> 
                     <div className="inputSection">
@@ -151,10 +151,9 @@ export default function AddActivity(props: IAddActivityProps){
                     
                 </div>
             </fieldset>
-
-
             <fieldset>
                 <div>
+                <p>{activity.errors.errCategory} </p>
                     <div id="categoryDiv">
                        <div>
                            <div>
@@ -165,11 +164,8 @@ export default function AddActivity(props: IAddActivityProps){
                             <span className="span-checkbox"></span>
                                 <p>INOMHUS</p>
                             </label>
-                           </div>
-                           
-                            
+                           </div> 
                        </div>
-
                         <div>
                             <div>
                                 <input type="checkbox" name="category" value="utomhus" className="category-checkbox" onChange={handleChecked}/>
@@ -178,10 +174,8 @@ export default function AddActivity(props: IAddActivityProps){
                                 <label htmlFor="outdoor" className="checkbox-label">
                                 <p>UTOMHUS</p>
                             </label>
-                            </div>
-                            
-                        </div>
-                        
+                            </div>  
+                        </div>                        
                         <div>
                             <div>
                                 <input type="checkbox" name="category" value="baka" className="category-chekbox" onChange={handleChecked}/>
@@ -190,8 +184,7 @@ export default function AddActivity(props: IAddActivityProps){
                                 <label htmlFor="baking" className="checkbox-label">
                                 <p>BAKA</p>
                             </label> 
-                            </div>
-                            
+                            </div>                           
                         </div>
                     </div>   
                 </div> 
