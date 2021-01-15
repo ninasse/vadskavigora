@@ -1,17 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Admin from './components/admin/Admin';
 import Home from './components/home/Home';
 import AboutUs from './components/about-us/AboutUs';
 import Header from './components/header/Header';
 import HeaderText from './components/headerText/headerText';
 import Footer from './components/footer/Footer';
-import CategoryButton from './components/categoryButton/CategoryButton';
-import  auth  from './firebase';
-import './App.scss';
+import LogIn from './components/log-in/LogIn';
+import PrivateRoute from './components/private-route/PrivateRoute';
 import SuggestionComp from './components/suggestionComp/SuggestionComp';
-
+import {AuthProvider} from './contexts/AuthContext';
+import './App.scss';
 function App() {
+ 
+ 
   return (
     <div className="App">
       <Header />
@@ -19,12 +21,14 @@ function App() {
       
       <Router>
         <main>
+        <AuthProvider>
           <Switch>
             <Route path="/home">
               <Home />           
             </Route>
-            <Route path="/admin">
-              <Admin />           
+            <PrivateRoute path="/admin" component={Admin} />
+            <Route path="/log-in">
+              <LogIn />           
             </Route>
             <Route path="/about-us">
               <AboutUs />           
@@ -32,10 +36,11 @@ function App() {
             <Route exact path="/">
               <Home />         
             </Route>
-            <Route exact path="/suggestion">
+            <Route path="/suggestion">
               <SuggestionComp />         
             </Route>
           </Switch>
+          </AuthProvider>
         </main>
       <Footer /> 
       </Router>

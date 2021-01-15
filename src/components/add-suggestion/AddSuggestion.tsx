@@ -1,5 +1,4 @@
-import firebase from 'firebase';
-import React, { ChangeEvent, useEffect, useReducer, useState } from 'react';
+import React, { ChangeEvent, useReducer, useState } from 'react';
 import Suggestion from '../../models/Suggestion';
 import './AddSuggestion.scss';
 

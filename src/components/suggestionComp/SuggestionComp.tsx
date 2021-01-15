@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './SuggestionComp.scss';
 import AddSuggestion from '../add-suggestion/AddSuggestion';
 import Suggestion from '../../models/Suggestion';
-import firebase from 'firebase';
+import firebase from './../../../src/firebase';
 import { Link } from 'react-router-dom';
+
 
 
 export default function SuggestionComp(){
@@ -31,8 +32,7 @@ export default function SuggestionComp(){
         console.log("SPARAR");
     }
 
-
-        
+    
     return(
         <React.Fragment>
             <div>
