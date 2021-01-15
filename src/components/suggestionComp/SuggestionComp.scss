@@ -1,0 +1,26 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/mixins.scss';
+
+
+#suggestionComp {
+    background: var(--background-one);
+    min-height: 700px;
+    padding-top: 15px;
+
+        #suggestionSeo {
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding: 15px;
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        
+        @include tablet {
+            width: 50%;
+        }
+        @include desktop {
+            width: 50%;
+        }
+    }
+  
+}

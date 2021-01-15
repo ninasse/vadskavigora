@@ -3,6 +3,7 @@ import './SuggestionComp.scss';
 import AddSuggestion from '../add-suggestion/AddSuggestion';
 import Suggestion from '../../models/Suggestion';
 import firebase from './../../../src/firebase';
+import { Link } from 'react-router-dom';
 
 
 
@@ -34,9 +35,18 @@ export default function SuggestionComp(){
     
     return(
         <React.Fragment>
-        <h1>Suggestion Comp!</h1>
-        <AddSuggestion addSuggestion={saveSuggestion}></AddSuggestion>
+            <div>
+                <div className="goBack">
+                <Link to="/"><button>Tillbaka</button></Link>
+                </div>
+            </div>
+            <div id="suggestionComp">
 
+                <span id="suggestionSeo">
+                Hjälp oss att fylla på databasen med massor av roliga aktiviteter som andra föräldrar kan ta del av. I en tid av vabb och brist på ider är det kanske just din aktivitet som ger glädje åt andra barn. 
+                </span>
+        <AddSuggestion addSuggestion={saveSuggestion}></AddSuggestion>
+        </div>
         </React.Fragment>
         
     )

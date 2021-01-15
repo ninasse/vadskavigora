@@ -5,8 +5,13 @@
  }
  body {
   font-family: 'Raleway Dots';
+  min-height: 100vh;
  }
 
+ button {
+   border: none;
+   outline: none;
+ }
 /*
 .App-logo {
   height: 40vmin;

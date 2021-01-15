@@ -2,10 +2,12 @@
 @import 'src/styles/colors.scss';
 
 .activityContainer {
+
     border: 2px black;
     font-weight: 600;
     color: var(--black);
     display: block;
+    
 
     #textPresentation{
         height: 60%;
@@ -16,17 +18,44 @@
         font-weight: bold;
         div {
              margin-top: 40px;
-            }   
+            }  
+            @include tablet{
+                font-size: 40px;
+            } 
         }
     
     #activityDesc {
         padding: 15px;
         display: block;
+        margin-bottom: 50px;
+
+        @include tablet {
+            font-size: 18px;
+            padding-top: 30px;
+            padding-left: 160px;
+            padding-right: 160px;
+        }
+    }
+    a {
+        color: var(--black);
+
+        @include tablet {
+            font-size: 14px;
+        }
     }
    } 
 }
 .getActivityButton{
-margin-top: 100px;
+margin-top: 190px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+@include tablet {
+    margin-top: 260px;
+}
+
     .btn-new {
         background: var(--color-one);
         height: 50px;

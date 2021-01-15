@@ -22,12 +22,14 @@ li {
     display: flex;
     background:var(--background-two); 
     margin-bottom: 4px;
+   
 }
 
 li:nth-child(odd) { background: var(--background-three); 
 }
 .suggestionContDiv {
     float: left;
+    width: 70%;
 }
 .deleteDiv {
 display: flex;

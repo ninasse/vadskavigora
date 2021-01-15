@@ -1,0 +1,97 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/mixins.scss';
+
+.goBack {
+    width: 140px;
+    background: var(--color-one);
+    button{
+         text-transform: uppercase;
+         font-size: 14px;
+         @include tablet {
+            font-size: 22px;
+         }
+    }
+  @include tablet {
+      width: 200px;
+      height: 30px;
+  } 
+}
+#aboutUsContainer {
+    background: var(--background-one);
+    height: 700px;
+    padding-top: 60px;
+
+    @include tablet {
+        padding-top: 40px;
+    }
+    #photoContainer {
+        @include desktop {
+            overflow: hidden;
+        }
+        div {
+            margin-bottom: 20px;
+            @include tablet {
+                float: left;
+               
+
+                @include desktop {
+                    width: 50%;
+                    margin-bottom: 0px;
+                }
+            }
+                .usPhoto {
+                width: 50%;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                margin: 0 auto;
+                display: block;
+
+                @include tablet {
+                    display: unset;
+                    width: 70%;
+                }
+                @include desktop {
+                    width: 35%;
+                }
+        
+            }
+        }
+           
+    }  
+
+    #aboutUsTextC {
+        padding-top: 40px;
+
+        .aboutUsText {
+            font-weight: 600;
+            width: 70%;
+            display: block;
+            margin-top: 40px;
+            margin: 0 auto;
+            font-size: 18px;
+
+            @include tablet {
+                width: 60%;
+                font-size: 20px;
+            }
+            @include desktop {
+                width: 50%;
+                font-size: 26px;
+            }
+        } 
+    }
+}
+#nina {
+    @include tablet {
+        float: right;
+        padding-right: 20px;
+        margin-bottom: 70px;
+    }
+}
+#caroline {
+    @include tablet {
+        float: left;
+        padding-left: 20px;
+        margin-bottom: 70px;
+    }
+}

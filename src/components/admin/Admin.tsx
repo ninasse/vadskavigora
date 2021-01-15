@@ -15,6 +15,8 @@ export default function Admin(){
     const [isSaved, setIsSaved] = useState(false);
     const [currentUser, setCurrentUser] = useState(authContext.user);
     const db = firebase.firestore();
+    const [isSelected, setIsSelected] = useState(false);
+
     const userEmail = auth.currentUser?.email;
     
     console.log(isSaved);
@@ -44,17 +46,26 @@ export default function Admin(){
         setIsSaved(false);
         console.log('SPARAR!!')
     }
-
+/* 
+    function signOut(){
+        firebase.auth().signOut();
+    }   */  
+    function setSelected(clicked : boolean){
+        setIsSelected(clicked);
        
     
+        console.log(isSelected);
+    }
     return (
         <React.Fragment>
+           <div>
            {currentUser ? <div>
             <div>Inloggad som: {userEmail}</div>
             <button type='button' id='adminSignOutButton' onClick={signOut}>Logga ut</button>
             </div> : null} 
         <AddActivity addActivity={saveActivity}></AddActivity>
-        <Suggestions></Suggestions>
+        <Suggestions suggestionSelected ={setSelected}></Suggestions>
+         </div>
         </React.Fragment>
     )
 }

@@ -134,13 +134,12 @@ export default function Home(){
                     </div>
                 </div>
                
-            
                 <div className='getActivityButton'>
                     {activityPresented ? <button type='button' className="btn-new" onClick={searchAgain}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
                 </div>
             </div>
            
-        
+       
         </React.Fragment>
         
     )
