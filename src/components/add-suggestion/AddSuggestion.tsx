@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useReducer, useState } from 'react';
+import {database} from '../../firebase';
 import Suggestion from '../../models/Suggestion';
 import './AddSuggestion.scss';
 
@@ -15,6 +16,7 @@ export default function AddSuggestion(props: IAddSuggestionProps){
     const [showDiv, setShowDiv] = useState(false);
     const [hideBtn, sethideBtn] = useState (true);
 
+   
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const { name, value } = e.target;
@@ -56,7 +58,8 @@ export default function AddSuggestion(props: IAddSuggestionProps){
         addId();
     }
 
-    function showHide(){
+    function addSuggestion(){
+        database.ref().child('Suggestion')
         setShowDiv(true);
         sethideBtn(false);
     }
@@ -91,7 +94,7 @@ export default function AddSuggestion(props: IAddSuggestionProps){
             </div>
             <div id="reviewBtn">
             {hideBtn ? 
-                <button type="button" className="saveBtn saveBtnSugg" onClick={showHide}>Granska Förslag</button> : null
+                <button type="button" className="saveBtn saveBtnSugg" onClick={addSuggestion}>Granska Förslag</button> : null
                 }
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useReducer, useState } from 'react';
-import firebase from '../../firebase';
+import {firestore} from '../../firebase';
 import Activity from '../../models/Activity';
 import './AddActivity.scss';
 
@@ -97,8 +97,7 @@ export default function AddActivity(props: IAddActivityProps){
 
     function showForm() {
         let mounted = true;
-            firebase
-            .firestore()
+            firestore
             .collection('activities').orderBy('ID')
             .onSnapshot((snapshot) => {
                 setActivities(snapshot.docs.map((doc: any) => ({
