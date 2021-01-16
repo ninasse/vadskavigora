@@ -1,47 +1,46 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, MouseEvent, useEffect } from 'react';
+import React, { useState, MouseEvent, useEffect} from 'react';
 import './CategoryButton.scss';
 
 export interface ICategoryButtonsProps {
     filterCategory(category: string, isSelected: boolean): void;
 }
 export default function CategoryButton(props: ICategoryButtonsProps){
+   
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selected, setSelected] = useState(false);
-    const [clickedButton, setClickedButton]= useState<HTMLDivElement | null>(null)
-    const [theOtherButtons, setTheOtherButtons]= useState<HTMLDivElement | null>(null)
-
+   
     function sendCategory(){
         props.filterCategory(selectedCategory, selected);
     }
    
     function saveCategory(e: MouseEvent<HTMLButtonElement>) {
-       
+        
         e.preventDefault();
+        const otherBtns = document.querySelector('.btnClicked');
+        otherBtns?.setAttribute('class', 'unclicked');
+
         let value = (e.target as HTMLButtonElement).value;
+        let selectedBtn = e.currentTarget as HTMLButtonElement;
+
+        selectedBtn.value === value ? selectedBtn.className='btnClicked' : selectedBtn.className='unclicked';
+        
         setSelectedCategory(value);
         setSelected(true);
-        const unClickedBtn: HTMLDivElement | null = document.querySelector('.btnClicked');
-        setTheOtherButtons(unClickedBtn);
-        theOtherButtons?.setAttribute('class', 'unclicked');
-       
-        const clickedBtn: HTMLDivElement | null = document.querySelector('#'+value)
-        setClickedButton(clickedBtn)
-        clickedButton?.setAttribute('class', 'btnClicked');
-
-        if(selectedCategory){
+         
+        /* if(selectedCategory){
             sendCategory();
-        }
+        } */
     }
     
-    /* useEffect(() => {
+     useEffect(() => {
         if(selectedCategory) {
             console.log(selectedCategory);
             sendCategory();
             setSelectedCategory(''); 
            
         }
-    }, [selectedCategory]); */
+    }, [selectedCategory]); 
    
 
     return(
