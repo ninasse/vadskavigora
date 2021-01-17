@@ -25,7 +25,7 @@ export default function AddSuggestion(props: IAddSuggestionProps){
             case "description":
                errors.errDescr =
                !value ? "Fyll i med en bra beskrivning tack!" : 
-                value.length < 5 ? "Behöver nog en tydligare beskrivning, Tack!" : "";
+                value.length < 8 ? "Vi behöver en tydligare beskrivning  än så, Tack!" : "";
               break;
             default:
               break;

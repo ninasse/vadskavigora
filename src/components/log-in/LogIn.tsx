@@ -43,7 +43,7 @@ export default function LogIn(){
                     setError('Du har uppgett fel e-mail.');
                     return
                 } else {
-                    setError('Oj då! Något blev tokigt, testa igen.')
+                    setError('Oj då! Något blev tokigt, testa igen om en liten stund.')
                 };
                  
             });
