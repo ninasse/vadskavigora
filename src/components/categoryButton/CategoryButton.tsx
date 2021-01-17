@@ -27,22 +27,16 @@ export default function CategoryButton(props: ICategoryButtonsProps){
         
         setSelectedCategory(value);
         setSelected(true);
-         
-        /* if(selectedCategory){
-            sendCategory();
-        } */
     }
     
      useEffect(() => {
         if(selectedCategory) {
             console.log(selectedCategory);
             sendCategory();
-            setSelectedCategory(''); 
-           
+            setSelectedCategory('');   
         }
     }, [selectedCategory]); 
    
-
     return(
         <React.Fragment>
         <div id="categoryComp">

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useReducer, useState } from 'react';
 import {database} from '../../firebase';
-import Suggestion from '../../models/Suggestion';
+import Suggestion, {errors} from '../../models/Suggestion';
 import './AddSuggestion.scss';
 
 export interface IAddSuggestionProps {
@@ -17,6 +17,19 @@ export default function AddSuggestion(props: IAddSuggestionProps){
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const { name, value } = e.target;
+        switch (name) {
+            case "title":
+                errors.errTitle =
+                !value ? "OOPS! Du glömde fylla i fältet för Titel" : "";
+              break;
+            case "description":
+               errors.errDescr =
+               !value ? "Fyll i med en bra beskrivning tack!" : 
+                value.length < 5 ? "Behöver nog en tydligare beskrivning, Tack!" : "";
+              break;
+            default:
+              break;
+          }
         setSuggestion({[name]: value, ID: suggestionId} as any);
     }
     function handleText(e: ChangeEvent<HTMLTextAreaElement>) {
@@ -48,10 +61,12 @@ export default function AddSuggestion(props: IAddSuggestionProps){
                 <fieldset>
                     <div className="inputSection inputSectionSugg">
                         <label htmlFor="suggestionTitle"><p>TITEL</p> </label>
+                        <p>{errors.errTitle}</p>
                     <input type="text" name="title" className="activity-input inputTitle" id="inputTitle" onChange={handleChange}/>
                     </div>
                     <div className="inputSection inputSectionSugg">
                     <label htmlFor="suggestionDescr"><p>BESKRIVNING</p> </label>
+                    <p>{errors.errDescr}</p>
                     <textarea name="description" className="activity-input inputDesc" id="inputDesc" onChange={handleText}/>
                     </div>
                     <div className="inputSection inputSectionSugg"> 

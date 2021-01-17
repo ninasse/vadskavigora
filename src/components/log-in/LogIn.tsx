@@ -14,7 +14,7 @@ export default function LogIn(){
         new UserData()
       );
     const [error, setError] = useState('');
-   
+
     function handleOnChange(e: ChangeEvent<HTMLInputElement>){
         e.preventDefault();
         const {name, value} = e.target;
@@ -22,24 +22,23 @@ export default function LogIn(){
     }
 
    function handleSignIn(e: MouseEvent<HTMLButtonElement>) {
-       console.log(userValues.email)
         e.preventDefault();
+        console.log('hej')
         setError('');
        
         auth.signInWithEmailAndPassword(userValues.email , userValues.password).then(res => {
-            console.log('RES -->', res);
-            authContext.setUser(res);
+            authContext.setUser(res.user);
             history.push('/admin');
             setUserValues({email: '', password: ''});
             }).catch(err => {
                 console.log(err.message);
-                setError(err.message)
+                setError(err.message);    
             });
    }   
    return(
         <>
         <h1>Logga in!</h1>
-        {error ? <div>{error}</div> : null}
+       { error ? <div>{error}</div> : null}
         <form>
             <fieldset>
                 <div>

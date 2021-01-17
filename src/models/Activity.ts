@@ -4,5 +4,6 @@ export default class Activity {
     link: string = '';
     category: Array<string> = [];
     description: string = '';
-    errors = { errTitle: '', errCategory: '', errDescription: ''  };
 }
+
+export const errors = { errTitle: '', errCategory: '', errDescription: '' };
