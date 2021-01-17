@@ -23,7 +23,6 @@ export default function LogIn(){
 
    function handleSignIn(e: MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
-        console.log('hej')
         setError('');
        
         auth.signInWithEmailAndPassword(userValues.email , userValues.password).then(res => {
@@ -31,8 +30,22 @@ export default function LogIn(){
             history.push('/admin');
             setUserValues({email: '', password: ''});
             }).catch(err => {
-                console.log(err.message);
-                setError(err.message);    
+                console.log(err);
+                if(err.code === "auth/wrong-password"){
+                    setError('Hoppsan! Lösenordet var fel.');
+                    return
+                };
+                if(err.code === "auth/user-not-found"){
+                    setError('Denna e-mail har inte behörighet.');
+                    return
+                };
+                if(err.code === "auth/invalid-email"){
+                    setError('Du har uppgett fel e-mail.');
+                    return
+                } else {
+                    setError('Oj då! Något blev tokigt, testa igen.')
+                }
+                 
             });
    }   
    return(

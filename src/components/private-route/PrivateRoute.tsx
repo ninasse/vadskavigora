@@ -1,21 +1,18 @@
-import React, { useContext, useEffect, useState} from 'react';
+import React, { useContext } from 'react';
 import {AuthContext} from '../../contexts/AuthContext';
 import {Redirect, Route} from 'react-router-dom';
 
 export default function PrivateRoute({component: Admin, ...rest}: any) {
     const authContext = useContext(AuthContext);
-    const user = authContext.user;
-    const [loggedInUser, setLoggedInUser]: any = useState(user)
-    console.log('USER -->', user);
+    const currentUser = authContext.user;
+    const isLoading = authContext.isLoading;
 
-    useEffect(() => {
-        setLoggedInUser(user)
-    }, [user]);
+   if(isLoading) return <div>Loggar in...</div>;
 
     return (
         <Route {...rest}
         render={props => 
-           loggedInUser ? <Admin {...props}/> : <Redirect to='/log-in' />   
+           currentUser ? <Admin {...props}/> : <Redirect to='/log-in' />   
         } />   
     )
 }
