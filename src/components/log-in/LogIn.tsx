@@ -44,7 +44,7 @@ export default function LogIn(){
                     return
                 } else {
                     setError('Oj då! Något blev tokigt, testa igen.')
-                }
+                };
                  
             });
    }   
