@@ -9,10 +9,6 @@ export default function CategoryButton(props: ICategoryButtonsProps){
    
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selected, setSelected] = useState(false);
-    const [showAllIcon, setShowAllIcon] = useState(false);
-    const [showIndoorIcon, setShowIndoorIcon] = useState(false);
-    const [showOutdoorIcon, setShowOutdoorIcon] = useState(false);
-    const [showBakeIcon, setShowBakeIcon] = useState(false);
    
     function sendCategory(){
         props.filterCategory(selectedCategory, selected);
@@ -36,27 +32,7 @@ export default function CategoryButton(props: ICategoryButtonsProps){
         /* if(selectedCategory){
             sendCategory();
         } */
-        if(selectedBtn.value === 'alla') {
-            setShowAllIcon(true);
-            setShowIndoorIcon(false);
-            setShowBakeIcon(false);
-            setShowOutdoorIcon(false);
-        } if(selectedBtn.value === 'inomhus') {
-            setShowIndoorIcon(true);
-            setShowAllIcon(false);
-            setShowBakeIcon(false);
-            setShowOutdoorIcon(false);
-        } if (selectedBtn.value === "utomhus"){
-            setShowIndoorIcon(false);
-            setShowAllIcon(false);
-            setShowBakeIcon(false);
-            setShowOutdoorIcon(true);
-        } if (selectedBtn.value === 'baka') {
-            setShowIndoorIcon(false);
-            setShowAllIcon(false);
-            setShowBakeIcon(true);
-            setShowOutdoorIcon(false);
-        };
+        
     }
     
      useEffect(() => {
@@ -71,20 +47,19 @@ export default function CategoryButton(props: ICategoryButtonsProps){
         <React.Fragment>
         <div id="categoryComp">
             <div className="categoryDiv">
-                <div id='alla'>
-                    <button type='button' value='alla'  className="unclicked" onClick={saveCategory}>{showAllIcon ? <i className="fa fa-heart"></i>: null } Alla </button>
-                </div>
-                <div id='inomhus'>
-                    <button type='button' value='inomhus'  className="unclicked" onClick={saveCategory}>{showIndoorIcon ? <i className="fa fa-home"></i>: null }Inomhus </button>
-                </div>
+                
+                    <button id='alla' type='button' value='alla'  className="unclicked" onClick={saveCategory}> Alla </button>
+                
+                    <button id='inomhus' type='button' value='inomhus'  className="unclicked" onClick={saveCategory}>Inomhus </button>
+                
             </div>
             <div className="categoryDiv">
-                <div id='utomhus'>
-                    <button type='button' value='utomhus' className="unclicked" onClick={saveCategory}>{showOutdoorIcon ? <i className="fa fa-tree"></i> : null}Utomhus  </button>
-                </div>
-                <div id='baka'>
-                    <button type='button' value='baka' className="unclicked" onClick={saveCategory}>{showBakeIcon ? <i className="fa fa-birthday-cake"></i> : null} Baka </button>
-                 </div>
+                
+                    <button id='utomhus' type='button' value='utomhus' className="unclicked" onClick={saveCategory}>Utomhus  </button>
+               
+                
+                    <button id='baka' type='button' value='baka' className="unclicked" onClick={saveCategory}>Baka </button>
+                 
             </div> 
         </div>
         </React.Fragment> 

@@ -24,18 +24,29 @@
   overflow: hidden;
   display: flex;
 
-  div {
+  button {
     width: 50%;
-
-    button {
-      text-transform: uppercase;
-    }
+    text-transform: uppercase;
   }
 
   .btnClicked {
    font-size: 22px;
  /*   text-decoration: underline; */
     width: 100%;
+        #alla {
+          box-shadow: 10px 7px 14px -2px rgba(0,0,0,0.41)
+
+        }
+        #inomhus {
+          box-shadow: -10px 7px 14px -2px rgba(0,0,0,0.41);
+
+        }
+        #utomhus {
+          box-shadow: 10px -7px 14px -2px rgba(0,0,0,0.41);
+        }
+        #baka {
+            box-shadow: -10px -7px 14px -2px rgba(0,0,0,0.41);
+        }
   }
   .unclicked {
     box-shadow: unset;
@@ -83,8 +94,4 @@
   @include tablet {
     margin-top: unset;
   }
-}
-.fa {
-  color: var(--black);
-  
 }

@@ -30,6 +30,10 @@ export default function Suggestions(props: ISuggestionsProps){
         setIsClicked(true);
     }
 
+    function deleteSuggestion() {
+
+    }
+
     if (isClicked){
         props.suggestionSelected(isClicked)
     }
@@ -51,7 +55,7 @@ export default function Suggestions(props: ISuggestionsProps){
                   </p>
                    </div>
                    <div className="deleteDiv">
-                       <button className="deleteButton" >
+                       <button /* onClick="deleteSuggestion" */ className="deleteButton" >
                            Radera
                        </button>
                    </div>   

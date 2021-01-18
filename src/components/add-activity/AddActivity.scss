@@ -42,7 +42,14 @@ fieldset {
       letter-spacing: 1;
       text-transform: uppercase;
       text-align: left;
+
   }
+  .errorMessages {
+    color: var(--color-delete);
+    font-weight: 700;
+    font-size: 12px;
+    padding-left: 20px;
+}
   #categoryDiv {
       display:flex;
       justify-content: center;
@@ -64,6 +71,7 @@ fieldset {
     }
     @include desktop {
         width: 20%;
+        margin-top: 20px;
     }
 }
 

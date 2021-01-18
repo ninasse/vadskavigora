@@ -131,16 +131,17 @@ export default function AddActivity(props: IAddActivityProps){
                     
                     <div className="inputSection">
                         <label htmlFor="activityTitle"><p>TITEL</p> </label>
-                        <p>{errors.errTitle}</p>
+                        
                     <input type="text" name="title" className="activity-input inputTitle" onChange={handleChange}/>
+                    <p className="errorMessages">{errors.errTitle}</p>
                     </div>
 
                     <div className="inputSection">
 
                     <label htmlFor="activityDescr"><p>BESKRIVNING</p> </label>
-                    <p>{errors.errDescription}</p>
+                    
                     <input type="text" name="description" className="activity-input inputDesc" onChange={handleChange}/>
-
+                    <p className="errorMessages">{errors.errDescription}</p>
                     </div>
                     <div className="inputSection">
                         <label htmlFor="activityLink"><p>LÄNK</p> </label>

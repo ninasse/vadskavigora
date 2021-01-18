@@ -2,7 +2,7 @@
 @import "src/styles/mixins.scss";
 
 .error-messages {
-    background: var(--color-two);
+    background: var(--color-delete);
     color: var(--black);
     font-weight: 700;
     font-size: 18px;
@@ -17,6 +17,7 @@
 }
 .login-label {
     display: block;
+    margin-top: 20px;
 }
 
 #loginBtn {

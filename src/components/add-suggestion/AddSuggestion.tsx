@@ -10,9 +10,8 @@ export interface IAddSuggestionProps {
 export default function AddSuggestion(props: IAddSuggestionProps){
     const [suggestion, setSuggestion] = useReducer((state: Suggestion, newState: Suggestion)=> ({...state, ...newState}), new Suggestion());
     const [isCreated, setIsCreated] = useState(false);
-    const [showDiv, setShowDiv] = useState(false);
-    const [hideBtn, sethideBtn] = useState (true);
     const suggestionId = database.ref('Suggestions').push().key;
+    const [showThanks, setShowThanks] = useState(false);
    
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
@@ -46,14 +45,13 @@ export default function AddSuggestion(props: IAddSuggestionProps){
         database.ref('Suggestions').push(suggestion);
         setIsCreated(true);
         resetForm();
-        setShowDiv(false);
-        sethideBtn(true);
+        setShowThanks(true);
+        
     }
+setTimeout(() => {
+    setShowThanks(false);
+  }, 3000);
 
-    function showSuggestion(){
-        setShowDiv(true);
-        sethideBtn(false);
-    }
     return(
     <React.Fragment>
         <div id="suggestionContainer">        
@@ -61,35 +59,33 @@ export default function AddSuggestion(props: IAddSuggestionProps){
                 <fieldset>
                     <div className="inputSection inputSectionSugg">
                         <label htmlFor="suggestionTitle"><p>TITEL</p> </label>
-                        <p>{errors.errTitle}</p>
+                        
                     <input type="text" name="title" className="activity-input inputTitle" id="inputTitle" onChange={handleChange}/>
+                    <p className="errorMessages">{errors.errTitle}</p>
                     </div>
                     <div className="inputSection inputSectionSugg">
                     <label htmlFor="suggestionDescr"><p>BESKRIVNING</p> </label>
-                    <p>{errors.errDescr}</p>
+                    
                     <textarea name="description" className="activity-input inputDesc" id="inputDesc" onChange={handleText}/>
+                    <p className="errorMessages">{errors.errDescr}</p>
                     </div>
                     <div className="inputSection inputSectionSugg"> 
                     <label htmlFor="suggestionLink"><p>LÄNK</p> </label>
                     <input type="text" name="link" className="activity-input inputLink"  onChange={handleChange}/>
                     </div>
+
+                    <button type="button" id="saveBtnSugg" className=" saveBtn" onClick={createSuggestion}>Skicka till Databas</button>  
+
                 </fieldset>
+                {showThanks ? 
+                <div id="thanks">
+                    TACK <i className="fa fa-heart"></i>
+                </div> : null }
             </div>
             <div>
-            {showDiv ? 
-            <div id="reviewSuggestion" className="hideDiv">
-                    <h3>{ suggestion.title}</h3> 
-                    <p>{suggestion.description}</p>
-                    <p>{suggestion.link}</p>
-                    <button type="button" className="saveBtn" onClick={createSuggestion}>Skicka till Databas</button>                
-                </div> : null
-                } ;
+        
             </div>
-            <div id="reviewBtn">
-            {hideBtn ? 
-                <button type="button" className="saveBtn saveBtnSugg" onClick={showSuggestion}>Granska Förslag</button> : null
-                }
-            </div>
+          
         </div>
     </React.Fragment>
         

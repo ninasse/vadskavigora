@@ -5,6 +5,13 @@
     @include desktop {
         display: flex;
     }
+
+    #addSuggestion {
+    
+        @include desktop {
+            width: 100%;
+        }
+    }
 }
 
 #inputDesc {
@@ -22,12 +29,7 @@ max-width: 100%;
     }
  
 }
-#addSuggestion {
-    
-    @include desktop {
-        width: 50%;
-    }
-}
+
 #reviewSuggestion {
 
     @include desktop;
@@ -39,13 +41,13 @@ max-width: 100%;
         width: 50%;
     }
 }
-#reviewBtn {
 
-  @include desktop {
-      width: 50%;
-  }  
-
-  .saveBtnSugg {
+#saveBtnSugg {
       width: 45%;
+      margin-top: 20px;
   }
-}
+  #thanks {
+      font-weight: 700;
+      color: red;
+      font-size: 18px;
+  }
