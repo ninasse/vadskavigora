@@ -22,7 +22,8 @@ li {
     display: flex;
     background:var(--background-two); 
     margin-bottom: 4px;
-   
+   width: 25%;
+   float: left;
 }
 
 li:nth-child(odd) { background: var(--background-three); 
