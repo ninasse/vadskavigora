@@ -37,6 +37,7 @@ export default function AddActivity(props: IAddActivityProps){
         props.addActivity(activity, isCreated);
         resetForm();
         setActivityFormRender(false);
+        setIsCreated(false);
     }
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {

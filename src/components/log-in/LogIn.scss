@@ -1,0 +1,35 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mixins.scss";
+
+.error-messages {
+    background: var(--color-two);
+    color: var(--black);
+    font-weight: 700;
+    font-size: 18px;
+
+    @include tablet {
+        width: 70%;
+        margin: 0 auto;
+    }
+    @include desktop {
+        width: 50%;
+    }
+}
+.login-label {
+    display: block;
+}
+
+#loginBtn {
+background-color: #8bd9fd;
+margin-top: 20px;
+}
+
+.login-input {
+
+    @include tablet {
+        width: 50%;
+    }
+    @include desktop {
+        width: 30%;
+    }
+}

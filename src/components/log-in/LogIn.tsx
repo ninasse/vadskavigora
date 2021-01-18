@@ -39,18 +39,18 @@ export default function LogIn(){
    return(
         <>
         <h1>Logga in!</h1>
-        {error ? <div>{error}</div> : null}
+        {error ? <div className="error-messages">{error}</div> : null}
         <form>
             <fieldset>
                 <div>
-                    <label htmlFor="email">E-mail</label>
-                    <input type="text" name="email" defaultValue={userValues.email} onChange={handleOnChange} />
+                    <label className="login-label" htmlFor="email">E-mail</label>
+                    <input type="text" name="email" className="activity-input inputTitle login-input" defaultValue={userValues.email} onChange={handleOnChange} />
                 </div>
                 <div>
-                    <label htmlFor="Password">Lösenord</label>
-                    <input type="password" name="password" defaultValue={userValues.password} onChange={handleOnChange} />
+                    <label className="login-label" htmlFor="Password">Lösenord</label>
+                    <input type="password" className="activity-input inputDesc login-input" name="password" defaultValue={userValues.password} onChange={handleOnChange} />
                 </div>
-                <button type='button' onClick={handleSignIn}>Logga in!</button>
+                <button type='button' id="loginBtn" className="saveBtn" onClick={handleSignIn}>Logga in!</button>
             </fieldset>
         </form>
         </>
