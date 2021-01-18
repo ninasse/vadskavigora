@@ -4,3 +4,8 @@ export default class Suggestion {
     link: string = '';
     description: string = '';
 }
+
+export const errors = {
+    errTitle: '',
+    errDescr: ''
+};

@@ -51,10 +51,13 @@ export default function Home(){
             setSelectedActivity(allActivities[randomNumber]);
             console.log(allActivities[randomNumber].title, allActivities[randomNumber].ID); 
         }
-
-        /* if (actID === String(selectedActivity.ID)){
-           searchAgain();
-       }; */ 
+        if (actID === String(selectedActivity.ID)){
+            if(filteredActivities.length > 0){
+                setSelectedActivity(filteredActivities[randomNumber-1]);
+            } else {
+                setSelectedActivity(allActivities[randomNumber-1]);
+            }
+        }; 
 
         sessionStorage.setItem('ShownActivity', String(selectedActivity.ID));
         setAllSelected(true); 
@@ -62,8 +65,7 @@ export default function Home(){
         setActivityPresented(true);
         setRandomNumber(Number);
         setSearchDone(true);
-        console.log(actID) 
-         
+        console.log(actID);    
     }
     
     function createIdNo(){

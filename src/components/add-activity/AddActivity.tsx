@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useReducer, useState } from 'react';
 import {firestore} from '../../firebase';
-import Activity from '../../models/Activity';
+import Activity , {errors} from '../../models/Activity';
 import './AddActivity.scss';
 
 export interface IAddActivityProps {
@@ -19,7 +19,7 @@ export default function AddActivity(props: IAddActivityProps){
     const [checkBoxValid, setCheckboxValid] = useState(false);
     const [formValid, setFormValid] = useState(false);
     
-    
+   
     function addId() {
         let lastActivity : Activity = activities[activities.length -1];
         setActivityId(lastActivity.ID +1);
@@ -43,8 +43,6 @@ export default function AddActivity(props: IAddActivityProps){
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const { name, value } = e.target;
-        let errors = activity.errors;
-
         switch (name) {
             case "title":
               errors.errTitle =
@@ -71,7 +69,6 @@ export default function AddActivity(props: IAddActivityProps){
     function handleChecked(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const value = e.target.value;
-        const errors = activity.errors;
         console.log(activity.category);
         
         if(e.target.checked){
@@ -131,16 +128,17 @@ export default function AddActivity(props: IAddActivityProps){
         {!activityFormRender ? <button type='button' className="saveBtn" onClick={showForm}>Skapa något nytt!</button> : <form id='add-activity-form' >
             <fieldset>
                 <div> 
+                    
                     <div className="inputSection">
                         <label htmlFor="activityTitle"><p>TITEL</p> </label>
-                        <p>{activity.errors.errTitle}</p>
+                        <p>{errors.errTitle}</p>
                     <input type="text" name="title" className="activity-input inputTitle" onChange={handleChange}/>
                     </div>
 
                     <div className="inputSection">
 
                     <label htmlFor="activityDescr"><p>BESKRIVNING</p> </label>
-                    <p>{activity.errors.errDescription}</p>
+                    <p>{errors.errDescription}</p>
                     <input type="text" name="description" className="activity-input inputDesc" onChange={handleChange}/>
 
                     </div>
@@ -153,7 +151,7 @@ export default function AddActivity(props: IAddActivityProps){
             </fieldset>
             <fieldset>
                 <div>
-                <p>{activity.errors.errCategory} </p>
+                <p>{errors.errCategory} </p>
                     <div id="categoryDiv">
                        <div>
                            <div>

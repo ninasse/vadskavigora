@@ -14,7 +14,7 @@ export default function LogIn(){
         new UserData()
       );
     const [error, setError] = useState('');
-   
+
     function handleOnChange(e: ChangeEvent<HTMLInputElement>){
         e.preventDefault();
         const {name, value} = e.target;
@@ -22,18 +22,30 @@ export default function LogIn(){
     }
 
    function handleSignIn(e: MouseEvent<HTMLButtonElement>) {
-       console.log(userValues.email)
         e.preventDefault();
         setError('');
        
         auth.signInWithEmailAndPassword(userValues.email , userValues.password).then(res => {
-            console.log('RES -->', res);
-            authContext.setUser(res);
+            authContext.setUser(res.user);
             history.push('/admin');
             setUserValues({email: '', password: ''});
             }).catch(err => {
-                console.log(err.message);
-                setError(err.message)
+                console.log(err);
+                if(err.code === "auth/wrong-password"){
+                    setError('Hoppsan! Lösenordet var fel.');
+                    return
+                };
+                if(err.code === "auth/user-not-found"){
+                    setError('Denna e-mail har inte behörighet.');
+                    return
+                };
+                if(err.code === "auth/invalid-email"){
+                    setError('Du har uppgett fel e-mail.');
+                    return
+                } else {
+                    setError('Oj då! Något blev tokigt, testa igen om en liten stund.')
+                };
+                 
             });
    }   
    return(
