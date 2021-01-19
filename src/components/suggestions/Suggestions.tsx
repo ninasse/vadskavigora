@@ -12,6 +12,7 @@ export default function Suggestions(props: ISuggestionsProps){
     const [isClicked, setIsClicked] = useState(false);
     const suggestionsRef = firebase.database().ref('Suggestions');
     const [expandDiv, setExpandDiv] = useState(Boolean);
+
    useEffect(() => {
     
     suggestionsRef.on('value', (snapshot)=> {
@@ -26,9 +27,19 @@ export default function Suggestions(props: ISuggestionsProps){
     }, []); 
 
     
-    function liClicked(e: React.MouseEvent<HTMLElement>) {
-        console.log(e.currentTarget);
+    function liClicked(e: MouseEvent<HTMLElement>) {
+        e.preventDefault();
+       console.log(e);
         
+       const otherLis = document.querySelector('.expandLi');
+
+       otherLis?.setAttribute('class','suggestionList');
+
+       let value = (e.target as HTMLLIElement).value;
+       let selectedLi = e.currentTarget as HTMLLIElement;
+
+       selectedLi.value === value ? selectedLi.className='expandLi' : selectedLi.className='suggestionList';
+
         setIsClicked(true);
        setExpandDiv(!expandDiv);
     }
@@ -43,9 +54,9 @@ export default function Suggestions(props: ISuggestionsProps){
         <h1>Förslag</h1>
         <ul>
             {suggestions.map((suggestion : any) =>  {
-               return <li id={expandDiv ? "expandDiv" : "hej" } className="suggestionList" onClick={liClicked} key=
+               return <li className="suggestionList" onClick={liClicked} key=
                {suggestion.ID}>
-                   <div className="suggestionContDiv">
+                   
                     <h3>{suggestion.title}
                    </h3>
                     <p>{suggestion.description}
@@ -57,7 +68,6 @@ export default function Suggestions(props: ISuggestionsProps){
                   <button /* onClick="deleteSuggestion" */ className="deleteButton" >
                            Radera
                        </button>
-                   </div>
                 </li>
             })}
         </ul>

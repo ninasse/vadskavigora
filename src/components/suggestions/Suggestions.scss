@@ -1,43 +1,59 @@
 @import 'src/styles/colors.scss';
-
-
+@import'src/styles/mixins.scss';
+    
   
 ul {
     padding-left: 0;
+    min-height: 40vh;
+    max-height: 40vh;
+    margin-top: 4vh;
 
+     @include desktop {
+        padding-left: 1vh;
+    } 
     .suggestionList {
-        
+        font-style: 'Raleway Dots';
+        text-transform: uppercase; 
+        list-style-type: none;
+        display: flex;
+        background:var(--background-two); 
+        margin-bottom: 4px;
+        width: 70vh;
+        height: 24vh;
+       float: left;
+       overflow: hidden;
+       margin: 5px;
+       flex-direction: column;
+
+       @include desktop {
+        width: 50vh;
+        height: 15vh;
+        justify-content: space-around;
+        padding-top: 4vh;
+    }
+        h3 {
+            @include desktop{
+                font-size: 3vh; 
+                margin-top: 2vh;
+                height: 5vh;
+             }
+        }
         p {
             font-weight: 600;
             font-size: 12px;
+            height: 10vh;
+            overflow: overlay;
+            color: var(--black);
+            @include desktop {
+                font-weight: 2vh;
+            }
         }
     } 
 }
 
-li { 
-    font-style: 'Raleway Dots';
-    text-transform: uppercase; 
-    list-style-type: none;
-    display: flex;
-    background:var(--background-two); 
-    margin-bottom: 4px;
-   width: 200px;
-   height: 100px;
-   float: left;
-   overflow: hidden;
-   margin: 5px;
-}
-#expandDiv {
-    width: 40%;
-    height: 100%;
-}
-
 li:nth-child(odd) { background: var(--background-three); 
 }
-.suggestionContDiv {
-    float: left;
-    width: 70%;
-}
+
 .deleteDiv {
 display: flex;
 align-items: center;
@@ -50,4 +66,33 @@ justify-content: center;
         width: 90px;
         
     }
+}
+
+.expandLi {
+    background: var(--background-one);
+    transition: 0.5s width, 0.5s 
+    0.5s height;
+    @include desktop {
+     width: 49%;
+    height: 100%; 
+    overflow: hidden; 
+    }
+
+    h3 {
+        @include desktop {
+            font-size: 3vh;
+        }
+    }
+    
+    p {
+        @include desktop {
+            
+            font-weight: 600;
+            font-size: 2vh;
+            height: 10vh;
+        }
+    }
+}
+.expandLi.current {
+    transition: 0.5s height, 0.5s 0.5s width;
 }
