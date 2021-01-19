@@ -7,8 +7,9 @@ export interface ICategoryButtonsProps {
 }
 export default function CategoryButton(props: ICategoryButtonsProps){
    
-    const [selectedCategory, setSelectedCategory] = useState('');
-    const [selected, setSelected] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState<string>('');
+    const [selected, setSelected] = useState<boolean>(false);
+    const [selectedButton, setSelectedButton] = useState<HTMLButtonElement>();
    
     function sendCategory(){
         props.filterCategory(selectedCategory, selected);
@@ -17,14 +18,16 @@ export default function CategoryButton(props: ICategoryButtonsProps){
     function saveCategory(e: MouseEvent<HTMLButtonElement>) {
         
         e.preventDefault();
-        const otherBtns = document.querySelector('.btnClicked');
-        otherBtns?.setAttribute('class', 'unclicked');
 
+        if(selectedButton?.className === 'btnClicked'){
+            selectedButton.className = 'unclicked'
+        };
+       
         let value = (e.target as HTMLButtonElement).value;
         let selectedBtn = e.currentTarget as HTMLButtonElement;
 
-        selectedBtn.value === value ? selectedBtn.className='btnClicked' : selectedBtn.className='unclicked';
-        
+        selectedBtn.className='btnClicked';
+        setSelectedButton(selectedBtn);
         setSelectedCategory(value);
         setSelected(true);     
     }
