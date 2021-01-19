@@ -17,6 +17,7 @@ export default function Home(){
     const [randomNumber, setRandomNumber] = useState(Number);
     const [activityPresented, setActivityPresented] = useState(false);
     const [searchDone, setSearchDone] = useState(false);
+    const [isLoading, setIsLoading] = useState(false)
 
     function filterCategory(category: string, isSelected: boolean){
         setSelectedCategory(category);
@@ -39,6 +40,7 @@ export default function Home(){
 
     function getActivity() {
         let actID = sessionStorage.getItem('ShownActivity');
+        setIsLoading(true);
         console.log('FRÅN GETACTIVITY',selectedCategory);
         console.log(randomNumber);
          if(selectedCategory !== 'alla' && randomNumber <= filteredActivities.length) {
@@ -51,15 +53,20 @@ export default function Home(){
             setSelectedActivity(allActivities[randomNumber]);
             console.log(allActivities[randomNumber].title, allActivities[randomNumber].ID); 
         }
-        if (actID === String(selectedActivity.ID)){
-            if(filteredActivities.length > 0){
-                setSelectedActivity(filteredActivities[randomNumber-1]);
-            } else {
-                setSelectedActivity(allActivities[randomNumber-1]);
-            }
+        
+        if(selectedActivity){
+            setIsLoading(false);
+            sessionStorage.setItem('ShownActivity', String(selectedActivity.ID));
+            if (actID === String(selectedActivity.ID)){
+                if(filteredActivities.length > 0){
+                    setSelectedActivity(filteredActivities[randomNumber-1]);
+                } else {
+                    setSelectedActivity(allActivities[randomNumber-1]);
+                }
+            };
         }; 
 
-        sessionStorage.setItem('ShownActivity', String(selectedActivity.ID));
+        
         setAllSelected(true); 
         setNotAllSelected(false); 
         setActivityPresented(true);
@@ -126,27 +133,27 @@ export default function Home(){
     }
 
     return(
-        <React.Fragment>
+        <div className='mainHomeContainer'>
             <CategoryButton filterCategory={filterCategory}/>
-            
-            <div className="activityContainer">
-            {allActivities.length <= 0 ? <div>Här lägger vi in en Välkomsttext</div>: null}   
-            {allActivities.length <= 0  && searchDone ? <div>Hoppsan! Finns inget roligt att visa just nu...</div>: null}
-            {selectedActivity && allActivities.length > 0 ? 
-                <div id="textPresentation">
-                   <span id="activityTitle"> <div>{selectedActivity.title}</div> </span>
-                    <div id="activityDesc"> {selectedActivity.description} </div>
-                    <div id="activityLink"> 
-                    {selectedActivity.link ? <a href={selectedActivity.link}>Mer information</a> : null }
+            <div className='activityWrapper'>
+                {isLoading ? <div id='errMessage'>Oj oj, vad hände nu?! Vi förstår att du vill ha en aktivitet presenterad för dig, gör en ny sökning så löser det sig.</div> : <div className="activityContainer">
+                {allActivities.length >= 0 && !searchDone? <div id='welcomeText'>Här lägger vi in en Välkomsttext</div>: <div className='dontShow'></div>}
+                {allActivities.length <= 0  && searchDone ? <div>Hoppsan! Finns inget roligt att visa just nu...</div>: null}
+                {selectedActivity && allActivities.length > 0 && searchDone? 
+                    <div id="textPresentation">
+                        <span id="activityTitle"> <div>{selectedActivity.title}</div> </span>
+                        <div id="activityDesc"> {selectedActivity.description} </div>
+                        <div id="activityLink"> 
+                        {selectedActivity.link ? <a href={selectedActivity.link}>Mer information</a> : null }
+                        </div>
                     </div>
-                </div>
-               : <div></div>} 
-                <div className='getActivityButton'>
-                    {activityPresented ? <button type='button' className="btn-new" onClick={searchAgain}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
-                </div>
+               : null} 
+                </div>}
             </div>
-       
-        </React.Fragment>
+            <div className='getActivityButton'>
+                {activityPresented ? <button type='button' className="btn-new" onClick={searchAgain}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
+            </div>
+        </div>
         
     )
 }
