@@ -5,8 +5,9 @@ export default function HeaderText(){
     return (
         <div id="headerTextDiv">
             <div>
-                <span className="headerText"> Känner du dig helt slut på ider och barnen klättrar på väggarna? </span>
-                <span className="headerText">Låt oss hjälpa dig!</span>
+                <span className="headerText">Hittade du inget du gillade eller känner att just din favoritaktivitet saknas? 
+ </span>
+                <span className="headerText">Skicka gärna in den till oss.</span>
             </div>   
         </div>   
     )

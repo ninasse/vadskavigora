@@ -16,48 +16,35 @@
       height: 30px;
   } 
 }
+
 #aboutUsContainer {
     background: var(--background-one);
-    height: 700px;
+    height: 70vh;
     padding-top: 60px;
 
     @include tablet {
         padding-top: 40px;
     }
+
     #photoContainer {
+        display: flex;
+        justify-content: space-around;
+        
+        @include tablet {
+        justify-content: center;
+        }
+    
         @include desktop {
             overflow: hidden;
         }
-        div {
-            margin-bottom: 20px;
-            @include tablet {
-                float: left;
-               
-
-                @include desktop {
-                    width: 50%;
-                    margin-bottom: 0px;
-                }
-            }
-                .usPhoto {
-                width: 50%;
-                margin-bottom: 20px;
-                margin-top: 20px;
-                margin: 0 auto;
-                display: block;
-
-                @include tablet {
-                    display: unset;
-                    width: 70%;
-                }
-                @include desktop {
-                    width: 35%;
-                }
-        
-            }
+        img {
+            @include desktop{
+              width: 20%;  
+            }  
         }
+    }
            
-    }  
+     
 
     #aboutUsTextC {
         padding-top: 40px;
@@ -76,22 +63,9 @@
             }
             @include desktop {
                 width: 50%;
-                font-size: 26px;
+                font-size: 22px;
             }
         } 
     }
-}
-#nina {
-    @include tablet {
-        float: right;
-        padding-right: 20px;
-        margin-bottom: 70px;
-    }
-}
-#caroline {
-    @include tablet {
-        float: left;
-        padding-left: 20px;
-        margin-bottom: 70px;
-    }
+
 }

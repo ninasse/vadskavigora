@@ -16,16 +16,16 @@ export default function AboutUs() {
             <div id="aboutUsContainer">
             
                 <div id="photoContainer">
-                    <div>
+                    
                         <img id="nina" className="usPhoto" src= {nina} alt="Nina" />
-                    </div>
-                    <div>
+                    
+                    
                        <img id="caroline" className="usPhoto" src={caroline} alt="Caroline" /> 
-                    </div>       
+                           
                 </div>
 
                 <div id="aboutUsTextC">
-                    <p className="aboutUsText">Bakom denna fantastiska sida hittar du oss. Nina och Caroline, två svåbarnsmammor som bestämde sig för att underlätta vardagen för andra föräldrar i vårt 
+                    <p className="aboutUsText">Bakom denna fantastiska sida hittar du oss. Nina och Caroline, två småbarnsmammor som bestämde sig för att underlätta vardagen för andra föräldrar i vårt 
                     examensarbete till Front end Developer.
                     </p>
                 </div>

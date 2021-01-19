@@ -3,6 +3,7 @@ import './SuggestionComp.scss';
 import AddSuggestion from '../add-suggestion/AddSuggestion';
 import Suggestion from '../../models/Suggestion';
 import { Link } from 'react-router-dom';
+import HeaderText from '../headerText/headerText';
 
 export default function SuggestionComp(){
 
@@ -18,15 +19,14 @@ export default function SuggestionComp(){
 
     return(
         <>
+        <HeaderText/>
             <div>
                 <div className="goBack">
                 <Link to="/"><button>Tillbaka</button></Link>
                 </div>
             </div>
             <div id="suggestionComp">
-                <span id="suggestionSeo">
-                    Hjälp oss att fylla på databasen med massor av roliga aktiviteter som andra föräldrar kan ta del av. I en tid av vabb och brist på ider är det kanske just din aktivitet som ger glädje åt andra barn. 
-                </span>
+                
                 <AddSuggestion addSuggestion={saveSuggestion}></AddSuggestion>
             </div>
         </>    
