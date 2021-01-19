@@ -62,7 +62,7 @@
   .getActivityButton {
     width: 100%;
     @include tablet {
-      margin-top: 260px;
+      margin-top: 20px;
     }
 
     .btn-new {
@@ -71,6 +71,7 @@
       border-radius: 15px;
       width: 98%;
       text-transform: uppercase;
+      
     }
   }
 }
