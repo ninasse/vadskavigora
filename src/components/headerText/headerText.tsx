@@ -7,9 +7,7 @@ export default function HeaderText(){
             <div>
                 <span className="headerText"> Känner du dig helt slut på ider och barnen klättrar på väggarna? </span>
                 <span className="headerText">Låt oss hjälpa dig!</span>
-            </div>
-            
-        </div>
-        
+            </div>   
+        </div>   
     )
 }

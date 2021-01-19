@@ -65,12 +65,9 @@ export default function Home(){
                 }
             };
         }; 
-
-        
         setAllSelected(true); 
         setNotAllSelected(false); 
         setActivityPresented(true);
-        setRandomNumber(Number);
         setSearchDone(true);
         console.log(actID);    
     }
@@ -137,7 +134,10 @@ export default function Home(){
             <CategoryButton filterCategory={filterCategory}/>
             <div className='activityWrapper'>
                 {isLoading ? <div id='errMessage'>Oj oj, vad hände nu?! Vi förstår att du vill ha en aktivitet presenterad för dig, gör en ny sökning så löser det sig.</div> : <div className="activityContainer">
-                {allActivities.length >= 0 && !searchDone? <div id='welcomeText'>Här lägger vi in en Välkomsttext</div>: <div className='dontShow'></div>}
+                {allActivities.length >= 0 && !searchDone? <div id='welcomeMsg'><div>
+                <span className="welcomeText"> Känner du dig helt slut på idéer och barnen klättrar på väggarna? </span>
+                <span className="welcomeText">Låt oss hjälpa dig!</span>
+            </div></div>: <div className='dontShow'></div>}
                 {allActivities.length <= 0  && searchDone ? <div>Hoppsan! Finns inget roligt att visa just nu...</div>: null}
                 {selectedActivity && allActivities.length > 0 && searchDone? 
                     <div id="textPresentation">

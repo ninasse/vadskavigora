@@ -6,6 +6,6 @@ export default class Suggestion {
 }
 
 export const errors = {
-    errTitle: '',
-    errDescr: ''
+    errTitle: ' ',
+    errDescr: ' '
 };

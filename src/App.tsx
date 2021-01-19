@@ -4,7 +4,6 @@ import Admin from './components/admin/Admin';
 import Home from './components/home/Home';
 import AboutUs from './components/about-us/AboutUs';
 import Header from './components/header/Header';
-import HeaderText from './components/headerText/headerText';
 import Footer from './components/footer/Footer';
 import LogIn from './components/log-in/LogIn';
 import PrivateRoute from './components/private-route/PrivateRoute';
@@ -17,8 +16,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <HeaderText />
-      
       <Router>
         <main>
         <AuthProvider>
