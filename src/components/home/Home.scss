@@ -41,7 +41,6 @@
             font-size: 4vh;
           }
         }
-       
       }
       .dontShow {
         height: 0;
@@ -96,6 +95,7 @@
       width: 50vh;
       text-transform: uppercase;
       font-size: 5vw;
+      width: 98%;
       @include tablet {
         font-size: 3vh;
       }
