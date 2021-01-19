@@ -6,24 +6,18 @@ import { Link } from 'react-router-dom';
 
 export default function SuggestionComp(){
 
-    const [suggestionC, setSuggestionC]= useState(new Suggestion());
     const [isSaved, setIsSaved] = useState(false);
-    
-    console.log(isSaved);
-    console.log(suggestionC);
-
+  
     function saveSuggestion(act: Suggestion, created:boolean) {
-        setSuggestionC(act);
         setIsSaved(created);
     }
 
     if(isSaved) { 
         setIsSaved(false);
-        console.log("SPARAT");
     }
 
     return(
-        <React.Fragment>
+        <>
             <div>
                 <div className="goBack">
                 <Link to="/"><button>Tillbaka</button></Link>
@@ -35,7 +29,6 @@ export default function SuggestionComp(){
                 </span>
                 <AddSuggestion addSuggestion={saveSuggestion}></AddSuggestion>
             </div>
-        </React.Fragment>
-        
+        </>    
     )
 }

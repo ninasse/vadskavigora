@@ -40,8 +40,10 @@
         max-height: 0;
       }
       #textPresentation {
-        height: 60%;
-        display: block;
+        height: 40vh;
+        justify-content: space-around;
+        display: flex;
+        flex-direction: column;
 
         #activityTitle {
           font-size: 30px;
