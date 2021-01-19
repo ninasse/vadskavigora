@@ -26,18 +26,11 @@ export default function AddActivity(props: IAddActivityProps){
         console.log(activities);
     } 
  
-    function resetForm() {
-         Array.from(document.querySelectorAll("input")).forEach(
-          // eslint-disable-next-line no-sequences
-          input => (input.value = "", input.checked = false )
-        );
-    }
-
     function createActivity() {
         props.addActivity(activity, isCreated);
-        resetForm();
         setActivityFormRender(false);
         setIsCreated(false);
+        setActivity(new Activity());
     }
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -127,27 +120,22 @@ export default function AddActivity(props: IAddActivityProps){
         <>
         {!activityFormRender ? <button type='button' className="saveBtn" onClick={showForm}>Skapa något nytt!</button> : <form id='add-activity-form' >
             <fieldset>
-                <div> 
-                    
+                <div>                     
                     <div className="inputSection">
                         <label htmlFor="activityTitle"><p>TITEL</p> </label>
-                        
-                    <input type="text" name="title" className="activity-input inputTitle" onChange={handleChange}/>
-                    <p className="errorMessages">{errors.errTitle}</p>
+                        <input type="text" name="title" className="activity-input inputTitle" value={activity.title} onChange={handleChange}/>
+                        <p className="errorMessages">{errors.errTitle}</p>
                     </div>
 
                     <div className="inputSection">
-
-                    <label htmlFor="activityDescr"><p>BESKRIVNING</p> </label>
-                    
-                    <input type="text" name="description" className="activity-input inputDesc" onChange={handleChange}/>
-                    <p className="errorMessages">{errors.errDescription}</p>
+                        <label htmlFor="activityDescr"><p>BESKRIVNING</p> </label>                    
+                        <input type="text" name="description" className="activity-input inputDesc" value={activity.description} onChange={handleChange}/>
+                        <p className="errorMessages">{errors.errDescription}</p>
                     </div>
                     <div className="inputSection">
                         <label htmlFor="activityLink"><p>LÄNK</p> </label>
-                    <input type="text" name="link" className="activity-input inputLink" onChange={handleChange}/>
-                    </div>
-                    
+                    <input type="text" name="link" className="activity-input inputLink" value={activity.link} onChange={handleChange}/>
+                    </div>                    
                 </div>
             </fieldset>
             <fieldset>

@@ -78,8 +78,9 @@ export default function Home(){
 
     return(
         <div className='mainHomeContainer'>
-            <CategoryButton filterCategory={filterCategory}/>
-           
+            <div id='catButtonContainer'>
+                <CategoryButton filterCategory={filterCategory}/>
+            </div>
             <div className='activityWrapper'>
                 {isLoading ? <div id='errMessage'>Oj oj, vad hände nu?! Vi förstår att du vill ha en aktivitet presenterad för dig, gör en ny sökning så löser det sig.</div> : <div className="activityContainer">
                 {allActivities.length >= 0 && !searchDone? <div id='welcomeMsg'><div>
