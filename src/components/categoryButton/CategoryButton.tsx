@@ -26,13 +26,7 @@ export default function CategoryButton(props: ICategoryButtonsProps){
         selectedBtn.value === value ? selectedBtn.className='btnClicked' : selectedBtn.className='unclicked';
         
         setSelectedCategory(value);
-        setSelected(true);
-        
-        console.log(selectedBtn.value);
-        /* if(selectedCategory){
-            sendCategory();
-        } */
-        
+        setSelected(true);     
     }
     
      useEffect(() => {
@@ -47,19 +41,12 @@ export default function CategoryButton(props: ICategoryButtonsProps){
         <React.Fragment>
         <div id="categoryComp">
             <div className="categoryDiv">
-                
-                    <button id='alla' type='button' value='alla'  className="unclicked" onClick={saveCategory}> Alla </button>
-                
-                    <button id='inomhus' type='button' value='inomhus'  className="unclicked" onClick={saveCategory}>Inomhus </button>
-                
+                <button id='alla' type='button' value='alla'  className="unclicked" onClick={saveCategory}> Alla </button>            
+                <button id='inomhus' type='button' value='inomhus'  className="unclicked" onClick={saveCategory}>Inomhus </button>            
             </div>
-            <div className="categoryDiv">
-                
-                    <button id='utomhus' type='button' value='utomhus' className="unclicked" onClick={saveCategory}>Utomhus  </button>
-               
-                
-                    <button id='baka' type='button' value='baka' className="unclicked" onClick={saveCategory}>Baka </button>
-                 
+            <div className="categoryDiv">               
+                <button id='utomhus' type='button' value='utomhus' className="unclicked" onClick={saveCategory}>Utomhus </button>                
+                <button id='baka' type='button' value='baka' className="unclicked" onClick={saveCategory}>Baka </button>                 
             </div> 
         </div>
         </React.Fragment> 

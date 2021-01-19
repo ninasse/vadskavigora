@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useReducer, useState } from 'react';
+import React, { ChangeEvent, useReducer, useState } from 'react';
 import {database} from '../../firebase';
 import Suggestion, {errors} from '../../models/Suggestion';
 import './AddSuggestion.scss';
@@ -70,8 +70,7 @@ export default function AddSuggestion(props: IAddSuggestionProps){
                     <input type="text" name="link" className="activity-input inputLink" value={suggestion.link} onChange={handleChange}/>
                     </div>
 
-                    <button type="button" id="saveBtnSugg" className=" saveBtn" disabled={!titleValid || !descrValid} onClick={createSuggestion}>Skicka!</button>  
-
+                    <button type="button" id="saveBtnSugg" className=" saveBtn" disabled={!titleValid || !descrValid} onClick={createSuggestion}>Skicka!</button>
                 </fieldset>
                 {showThanks ? 
                     <div id="thanks">
@@ -80,7 +79,5 @@ export default function AddSuggestion(props: IAddSuggestionProps){
             </div>         
         </div>
     </React.Fragment>
-        
-
     )
 }

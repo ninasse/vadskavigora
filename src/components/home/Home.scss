@@ -6,6 +6,10 @@
   flex-direction: column;
   justify-content: space-between;
 
+  #catButtonContainer {
+    margin-top: 3vh;
+  }
+
   .activityWrapper {
     background-color: var(--background-three);
     min-height: 40vh;

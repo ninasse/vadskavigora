@@ -28,7 +28,6 @@ export default function LogIn(){
         auth.signInWithEmailAndPassword(userValues.email , userValues.password).then(res => {
             authContext.setUser(res.user);
             history.push('/admin');
-            setUserValues({email: '', password: ''});
             }).catch(err => {
                 console.log(err);
                 if(err.code === "auth/wrong-password"){
@@ -47,7 +46,8 @@ export default function LogIn(){
                 };
                  
             });
-   }   
+        setUserValues(new UserData());
+    }   
    return(
         <>
         <h1>Logga in!</h1>
