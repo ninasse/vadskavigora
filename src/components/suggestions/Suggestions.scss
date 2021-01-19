@@ -28,8 +28,7 @@ ul {
        @include desktop {
         width: 50vh;
         height: 15vh;
-        justify-content: space-around;
-        padding-top: 4vh;
+      
     }
         h3 {
             @include desktop{
@@ -47,6 +46,11 @@ ul {
             @include desktop {
                 font-weight: 2vh;
             }
+        }
+        div {
+            width: 100%;
+            top:10px;
+            left:0px;
         }
     } 
 }
@@ -95,4 +99,12 @@ justify-content: center;
 }
 .expandLi.current {
     transition: 0.5s height, 0.5s 0.5s width;
+}
+.viewBtn {
+    width: 50%;
+    background: var(--color-three);
+}
+.deletesugg{
+    width: 50%;
+    background: var(--color-delete);
 }

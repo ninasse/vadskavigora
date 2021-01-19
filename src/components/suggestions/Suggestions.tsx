@@ -59,13 +59,19 @@ export default function Suggestions(props: ISuggestionsProps){
         <ul>
             {suggestions.map((suggestion : any) =>  {
                return <li className="suggestionList" onClick={liClicked} key=
-               {suggestion.ID}>                   
+               {suggestion.ID}> 
+               <div> 
+                       <div>
+                        <button className="viewBtn" onClick={liClicked}>Granska</button>
+                       <button id={suggestion.ID}  onClick={deleteSuggestion}  className="deleteButton deletesugg" >
+                           Radera
+                    </button> 
+                    </div>         
                     <h3>{suggestion.title}</h3>
                     <p>{suggestion.description}</p>
                     <p> länk: {suggestion.link}</p>
-                    <button id={suggestion.ID}  onClick={deleteSuggestion}  className="deleteButton" >
-                           Radera
-                    </button>
+                    
+                   </div> 
                 </li>
             })}
         </ul>
