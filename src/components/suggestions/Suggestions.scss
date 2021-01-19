@@ -6,7 +6,6 @@ ul {
     padding-left: 0;
 
     .suggestionList {
-        text-align: left;
         
         p {
             font-weight: 600;
@@ -22,8 +21,15 @@ li {
     display: flex;
     background:var(--background-two); 
     margin-bottom: 4px;
-   width: 25%;
+   width: 200px;
+   height: 100px;
    float: left;
+   overflow: hidden;
+   margin: 5px;
+}
+#expandDiv {
+    width: 40%;
+    height: 100%;
 }
 
 li:nth-child(odd) { background: var(--background-three); 
@@ -42,5 +48,6 @@ justify-content: center;
         height: 30px;
         border-radius: 15px;
         width: 90px;
+        
     }
 }

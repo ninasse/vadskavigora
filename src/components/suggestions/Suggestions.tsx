@@ -1,4 +1,4 @@
-import React, {useState, useEffect, } from 'react';
+import React, {useState, useEffect, MouseEvent} from 'react';
 import firebase from '../../firebase';
 import Suggestion from './../../models/Suggestion';
 import './Suggestions.scss';
@@ -11,7 +11,7 @@ export default function Suggestions(props: ISuggestionsProps){
     const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
     const [isClicked, setIsClicked] = useState(false);
     const suggestionsRef = firebase.database().ref('Suggestions');
-
+    const [expandDiv, setExpandDiv] = useState(Boolean);
    useEffect(() => {
     
     suggestionsRef.on('value', (snapshot)=> {
@@ -26,16 +26,16 @@ export default function Suggestions(props: ISuggestionsProps){
     }, []); 
 
     
-    function liClicked() {
+    function liClicked(e: React.MouseEvent<HTMLElement>) {
+        console.log(e.currentTarget);
+        
         setIsClicked(true);
-    }
-
-    function deleteSuggestion() {
-
+       setExpandDiv(!expandDiv);
     }
 
     if (isClicked){
         props.suggestionSelected(isClicked)
+        console.log(Suggestion);
     }
 
     return(
@@ -43,7 +43,7 @@ export default function Suggestions(props: ISuggestionsProps){
         <h1>Förslag</h1>
         <ul>
             {suggestions.map((suggestion : any) =>  {
-               return <li className="suggestionList" onClick={liClicked} key=
+               return <li id={expandDiv ? "expandDiv" : "hej" } className="suggestionList" onClick={liClicked} key=
                {suggestion.ID}>
                    <div className="suggestionContDiv">
                     <h3>{suggestion.title}
@@ -53,12 +53,11 @@ export default function Suggestions(props: ISuggestionsProps){
                   <p> länk: 
                 {suggestion.link} 
                   </p>
-                   </div>
-                   <div className="deleteDiv">
-                       <button /* onClick="deleteSuggestion" */ className="deleteButton" >
+
+                  <button /* onClick="deleteSuggestion" */ className="deleteButton" >
                            Radera
                        </button>
-                   </div>   
+                   </div>
                 </li>
             })}
         </ul>
