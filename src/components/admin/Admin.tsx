@@ -37,10 +37,6 @@ export default function Admin(){
         })
      } 
 
-    function setSelected(clicked : boolean){
-        setIsSelected(clicked);
-    }
-
     useEffect(() => {
         if(isSaved ) {
             addToDB(); 
@@ -54,7 +50,7 @@ export default function Admin(){
            <div>
            
         <AddActivity addActivity={saveActivity}></AddActivity>
-        <Suggestions suggestionSelected ={setSelected}></Suggestions>
+        <Suggestions></Suggestions>
           {   <div id="inlog-info">
                 {currentUser ? 
                     <div>

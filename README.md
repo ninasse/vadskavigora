@@ -30,12 +30,20 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 # Packages and dependencies
 
-firebase version 8.2.1
-font-awesome version 4.7.0,
-node-sass version 4.14.1
-react version 17.0.1
-react-dom version 17.0.1
-react-router-dom version 5.2.0
-react-scripts version 4.0.1
-typescript version 4.0.3
-web-vitals version 0.2.4
+### firebase version 8.2.1
+
+### font-awesome version 4.7.0,
+
+### node-sass version 4.14.1
+
+### react version 17.0.1
+
+### react-dom version 17.0.1
+
+### react-router-dom version 5.2.0
+
+### react-scripts version 4.0.1
+
+### typescript version 4.0.3
+
+### web-vitals version 0.2.4

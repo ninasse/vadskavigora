@@ -6,15 +6,12 @@ import './Suggestions.scss';
 export interface ISuggestionsProps {
     suggestionSelected(clicked : boolean): void; 
 }
-export default function Suggestions(props: ISuggestionsProps){
+export default function Suggestions (){
 
     const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
-    const [isClicked, setIsClicked] = useState(false);
-    const [selectedSuggestion, setSelectedSuggestion] = useState<HTMLLIElement>();
-    const [expandDiv, setExpandDiv] = useState(false);
-    
-    
+    const [isClicked, setIsClicked] = useState(false);  
     const suggestionsRef = database.ref('Suggestions');
+
     useEffect(() => {
     
         suggestionsRef.on('value', (snapshot)=> {
@@ -36,27 +33,19 @@ export default function Suggestions(props: ISuggestionsProps){
            snapshot.forEach((data: any)=>{
             suggestionsRef.child(data.key).remove()
            })
-       })
-        
-        
+       }) 
     }
-    function liClicked(e: MouseEvent<HTMLElement>) {
-        e.preventDefault();
-
-        setIsClicked(true);
-        setExpandDiv(true);
-       
+    function openModal(e: MouseEvent<HTMLButtonElement>) {
+        setIsClicked(true)
+        const modal: any = document.getElementById(String(e)); 
+        modal.className = 'modal'
+        console.log(e)
     }
 
     function closeModal(e: MouseEvent<HTMLElement>) {
-        e.preventDefault()
-        console.log("hej från close");
-        setExpandDiv(false);
-        console.log(expandDiv);
-    }
-
-    if (isClicked){
-        props.suggestionSelected(isClicked)
+        let modal: any= document.getElementById(String(e));
+        modal.className = 'hiddenModal';
+        setIsClicked(false)
     }
 
     return(
@@ -69,31 +58,25 @@ export default function Suggestions(props: ISuggestionsProps){
                {suggestion.ID}> 
                     <div> 
                        <div>
-                        <button className="viewBtn" onClick={liClicked}>Granska</button>
-                    </div>         
-                    <h3>{suggestion.title}</h3>
-                   
-                   </div> 
-                   {expandDiv? 
-                    <div className="modal">
-                    <div className="modal-content">
-                    <span className="close" onClick={closeModal}>
-                        &times;</span>
-                      <h3>{suggestion.title} </h3> 
-                      <p>{suggestion.description}</p>
-                      <span>{suggestion.link}</span> 
-
-                      <button id={suggestion.ID} onClick={()=> deleteSuggestion(suggestion.ID)}   className="deleteButton deletesugg" >
-                           Radera
-                    </button>
+                            <button className="viewBtn" onClick={()=>openModal(suggestion.ID)}>Granska</button>
+                        </div>         
+                        <h3>{suggestion.title}</h3>                   
+                   </div>               
+                    <div className="hiddenModal" id={suggestion.ID}>
+                        <div className="modal-content">
+                            <span className="close" onClick={() =>closeModal(suggestion.ID)}>&times;</span>
+                            <h3>{suggestion.title}</h3> 
+                            <p>{suggestion.description}</p>
+                            <span>{suggestion.link}</span> 
+                            <button id={suggestion.ID} onClick={()=> deleteSuggestion(suggestion.ID)} className="deleteButton deletesugg">
+                                Radera
+                            </button>
+                        </div>
                     </div>
-                    
-                    </div> : null }
                 </li>
                 
             })}
         </ul>
-
         </>
     )
 }
