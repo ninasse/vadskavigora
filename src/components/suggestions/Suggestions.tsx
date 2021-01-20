@@ -11,7 +11,8 @@ export default function Suggestions(props: ISuggestionsProps){
     const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
     const [isClicked, setIsClicked] = useState(false);
     const [selectedSuggestion, setSelectedSuggestion] = useState<HTMLLIElement>();
-    const [expandDiv, setExpandDiv] = useState(Boolean);
+    const [expandDiv, setExpandDiv] = useState(false);
+    
     
     const suggestionsRef = database.ref('Suggestions');
     useEffect(() => {
@@ -41,18 +42,17 @@ export default function Suggestions(props: ISuggestionsProps){
     }
     function liClicked(e: MouseEvent<HTMLElement>) {
         e.preventDefault();
-        console.log(e);
 
-       if(selectedSuggestion?.className === 'expandLi'){
-           selectedSuggestion.className = 'suggestionList'
-       };
-
-        let selectedLi = e.currentTarget as HTMLLIElement;
-        selectedLi.className='expandLi';
-
-        setSelectedSuggestion(selectedLi)
         setIsClicked(true);
-        setExpandDiv(!expandDiv);
+        setExpandDiv(true);
+       
+    }
+
+    function closeModal(e: MouseEvent<HTMLElement>) {
+        e.preventDefault()
+        console.log("hej från close");
+        setExpandDiv(false);
+        console.log(expandDiv);
     }
 
     if (isClicked){
@@ -68,21 +68,33 @@ export default function Suggestions(props: ISuggestionsProps){
               
                return <li className="suggestionList" onClick={liClicked} key=
                {suggestion.ID}> 
-               <div> 
+                    <div> 
                        <div>
                         <button className="viewBtn" onClick={liClicked}>Granska</button>
-                       <button id={suggestion.ID} onClick={()=> deleteSuggestion(suggestion.ID)}   className="deleteButton deletesugg" >
-                           Radera
-                    </button> 
                     </div>         
                     <h3>{suggestion.title}</h3>
-                    <p>{suggestion.description}</p>
-                    <p> länk: {suggestion.link}</p>
-                    
+                   
                    </div> 
+                   {expandDiv? 
+                    <div className="modal">
+                    <div className="modal-content">
+                    <span className="close" onClick={closeModal}>
+                        &times;</span>
+                      <p>{suggestion.title} </p> 
+                      <p>{suggestion.description}</p>
+                      <p>{suggestion.link}</p> 
+
+                      <button id={suggestion.ID} onClick={()=> deleteSuggestion(suggestion.ID)}   className="deleteButton deletesugg" >
+                           Radera
+                    </button>
+                    </div>
+                    
+                    </div> : null }
                 </li>
+                
             })}
         </ul>
+
         </>
     )
 }
