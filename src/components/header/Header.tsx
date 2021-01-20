@@ -8,7 +8,7 @@ export default function Header(){
     return(
         <React.Fragment>
             <div>
-                <Link className="linkToAdmin" to="/admin"><button id="buttonAdmin">Admin</button></Link>
+                <Link className="linkToAdmin" to="/admin"><button id="buttonAdmin"><i className="fa fa-lock"></i></button></Link>
             </div>
             <div id="headerDiv">
             <Link to="/">

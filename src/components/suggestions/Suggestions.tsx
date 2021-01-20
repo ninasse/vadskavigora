@@ -58,7 +58,7 @@ export default function Suggestions (){
                {suggestion.ID}> 
                     <div> 
                        <div>
-                            <button className="viewBtn" onClick={()=>openModal(suggestion.ID)}>Granska</button>
+                            <button className="viewBtn" onClick={()=>openModal(suggestion.ID)}><i className="fa fa-eye fa-2x"></i></button>
                         </div>         
                         <h3>{suggestion.title}</h3>                   
                    </div>               
