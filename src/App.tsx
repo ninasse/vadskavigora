@@ -15,8 +15,9 @@ function App() {
  
   return (
     <div className="App">
-      <Header />
       <Router>
+      <Header />
+      
         <main>
         <AuthProvider>
           <Switch>
