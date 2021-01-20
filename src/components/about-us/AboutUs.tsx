@@ -12,24 +12,16 @@ export default function AboutUs() {
                 <Link to="/"><button>Tillbaka</button></Link>
                 </div>
             </div>
-
-            <div id="aboutUsContainer">
-            
-                <div id="photoContainer">
-                    
-                        <img id="nina" className="usPhoto" src= {nina} alt="Nina" />
-                    
-                    
-                       <img id="caroline" className="usPhoto" src={caroline} alt="Caroline" /> 
-                           
+            <div id="aboutUsContainer">            
+                <div id="photoContainer">                
+                    <img id="nina" className="usPhoto" src= {nina} alt="Nina" />
+                    <img id="caroline" className="usPhoto" src={caroline} alt="Caroline" /> 
                 </div>
-
                 <div id="aboutUsTextC">
                     <p className="aboutUsText">Bakom denna fantastiska sida hittar du oss. Nina och Caroline, två småbarnsmammor som bestämde sig för att underlätta vardagen för andra föräldrar i vårt 
                     examensarbete till Front end Developer.
                     </p>
                 </div>
-
             </div>
         </React.Fragment>
     )

@@ -50,9 +50,7 @@ export default function Home(){
         let random: number = Math.floor(Math.random() * allActivities.length);
         let actID = sessionStorage.getItem('ShownActivity');
         setSelectedActivity(allActivities[random]);
-            console.log('FRÅN GETACTIVITY',selectedCategory);
-            console.log(allActivities[random].title, allActivities[random].ID); 
-            console.log('ALLACTIVITIES', allActivities.length);
+
         if(selectedActivity){
             setIsLoading(false);
             sessionStorage.setItem('ShownActivity', String(selectedActivity.ID));
@@ -71,7 +69,7 @@ export default function Home(){
         }
     }
 
-     if(allActivities.length > 0 && isCategorySelected){
+    if(allActivities.length > 0 && isCategorySelected){
         getActivity();
         setIsCategorySelected(false);     
     } 
