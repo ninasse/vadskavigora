@@ -23,7 +23,6 @@ export default function AddActivity(props: IAddActivityProps){
     function addId() {
         let lastActivity : Activity = activities[activities.length -1];
         setActivityId(lastActivity.ID +1);
-        console.log(activities);
     } 
  
     function createActivity() {
@@ -62,18 +61,14 @@ export default function AddActivity(props: IAddActivityProps){
     function handleChecked(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
         const value = e.target.value;
-        console.log(activity.category);
-        
+
         if(e.target.checked){
             let filtered = activity.category.filter(v => v !== value );
             filtered.push(value);
             activity.category = filtered;
-            console.log(filtered);
-
         } else {
             let filtered = activity.category.filter(v => v !== value);
             activity.category = filtered;
-            console.log(filtered);
         }
         activity.category.length < 2 ? errors.errCategory = 'Välj minst en kategori!': errors.errCategory = '';
 

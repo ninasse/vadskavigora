@@ -15,19 +15,17 @@ export default function Admin(){
     const [isSaved, setIsSaved] = useState(false);
     const [currentUser, setCurrentUser] = useState(authContext.user);
     const db = firebase.firestore();
+    // eslint-disable-next-line
     const [isSelected, setIsSelected] = useState(false);
 
     const userEmail = auth.currentUser?.email;
-    
-    console.log(isSaved);
-    console.log(auth.currentUser?.email);
+  
     function saveActivity(act: Activity, created: boolean) {
         setActivity(act);
         setIsSaved(created);
     }
       
     function addToDB() {
-        console.log(activity);
         db.collection('activities').add(activity);
         setIsSaved(false);    
     }
@@ -41,14 +39,11 @@ export default function Admin(){
 
     function setSelected(clicked : boolean){
         setIsSelected(clicked);
-       
-        console.log(isSelected);
     }
 
     useEffect(() => {
         if(isSaved ) {
             addToDB(); 
-            console.log('SPARAR!!')
         }
         setIsSaved(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps

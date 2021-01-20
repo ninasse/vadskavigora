@@ -29,7 +29,6 @@ export default function LogIn(){
             authContext.setUser(res.user);
             history.push('/admin');
             }).catch(err => {
-                console.log(err);
                 if(err.code === "auth/wrong-password"){
                     setError('Hoppsan! Lösenordet var fel.');
                     return
@@ -43,8 +42,7 @@ export default function LogIn(){
                     return
                 } else {
                     setError('Oj då! Något blev tokigt, testa igen om en liten stund.')
-                };
-                 
+                };                 
             });
         setUserValues(new UserData());
     }   

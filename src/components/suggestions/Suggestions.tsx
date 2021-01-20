@@ -1,5 +1,5 @@
 import React, {useState, useEffect, MouseEvent} from 'react';
-import firebase, {database} from '../../firebase';
+import {database} from '../../firebase';
 import Suggestion from './../../models/Suggestion';
 import './Suggestions.scss';
 
@@ -57,7 +57,6 @@ export default function Suggestions(props: ISuggestionsProps){
 
     if (isClicked){
         props.suggestionSelected(isClicked)
-        console.log(Suggestion);
     }
 
     return(
