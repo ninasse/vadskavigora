@@ -1,0 +1,32 @@
+@import "src/styles/mixins.scss";
+@import "src/styles/colors.scss";
+
+
+#inlog-info {
+    background:var(--white);
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    height: 14vh;
+    
+    
+   
+    div {
+        font-weight: 600;
+        font-size: 14px;
+        @include tablet {
+            font-size: 18px;
+        
+        }
+    }
+}
+#adminSignOutButton{
+    width: 70%;
+    background: #8bd9fd!important;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    
+    @include tablet {
+        width:50%;
+    }
+}

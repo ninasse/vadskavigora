@@ -65,7 +65,7 @@ export default function Suggestions(props: ISuggestionsProps){
         <ul>
             {suggestions.map((suggestion : any) =>  {
               
-               return <li className="suggestionList" onClick={liClicked} key=
+               return <li className="suggestionList" key=
                {suggestion.ID}> 
                     <div> 
                        <div>
@@ -79,9 +79,9 @@ export default function Suggestions(props: ISuggestionsProps){
                     <div className="modal-content">
                     <span className="close" onClick={closeModal}>
                         &times;</span>
-                      <p>{suggestion.title} </p> 
+                      <h3>{suggestion.title} </h3> 
                       <p>{suggestion.description}</p>
-                      <p>{suggestion.link}</p> 
+                      <span>{suggestion.link}</span> 
 
                       <button id={suggestion.ID} onClick={()=> deleteSuggestion(suggestion.ID)}   className="deleteButton deletesugg" >
                            Radera

@@ -52,12 +52,17 @@ export default function Admin(){
     return (
         <React.Fragment>
            <div>
-           {currentUser ? <div>
-            <div>Inloggad som: {userEmail}</div>
-            <button type='button' id='adminSignOutButton' onClick={signOut}>Logga ut</button>
-            </div> : null} 
+           
         <AddActivity addActivity={saveActivity}></AddActivity>
         <Suggestions suggestionSelected ={setSelected}></Suggestions>
+          {   <div id="inlog-info">
+                {currentUser ? 
+                    <div>
+                        <div>Inloggad som: {userEmail}
+                        </div>
+                        <button type='button' id='adminSignOutButton' onClick={signOut}>Logga ut</button>
+                    </div> : null} 
+            </div> }
          </div>
         </React.Fragment>
     )
