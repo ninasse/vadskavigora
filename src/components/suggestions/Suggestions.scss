@@ -1,0 +1,154 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mixins.scss";
+
+h1 {
+  background: var(--background-one);
+}
+
+ul {
+  padding-left: 0;
+  min-height: 40vh;
+  max-height: 40vh;
+  margin-top: 4vh;
+
+  @include desktop {
+    padding-left: 1vh;
+  }
+  .suggestionList {
+    font-style: "Raleway Dots";
+    
+    list-style-type: none;
+    display: flex;
+    background: var(--background-two) 0.5%;
+    margin-bottom: 4px;
+    width: 100%;
+    height: 24vh;
+    float: left;
+    overflow: hidden;
+    margin: 5px;
+    flex-direction: column;
+    border-radius: 20px;
+
+    @include desktop {
+      width: 50vh;
+      height: 15vh;
+    }
+    h3 {
+      @include desktop {
+        font-size: 3vh;
+        margin-top: 2vh;
+        height: 5vh;
+      }
+    }
+    p {
+      font-weight: 600;
+      font-size: 12px;
+      height: 10vh;
+      overflow: overlay;
+      color: var(--black);
+      @include desktop {
+        font-weight: 2vh;
+      }
+    }
+    div {
+      width: 100%;
+      top: 10px;
+      left: 0px;
+    }
+  }
+}
+
+
+  .deleteButton {
+    height: 30px;
+    width: 90px;
+    margin: 20px;
+  }
+
+
+.viewBtn {
+  width: 100%;
+  background: var(--color-four);
+  text-transform: uppercase;
+}
+
+.hiddenModal {
+  display: none;
+}
+.modal {
+  /*  transition: 0.5s width, 0.5s 
+    0.5s height; */
+  display: block;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(20%, 65%);
+  width: 70% !important;
+  height: 70% !important;
+  overflow: auto !important;
+  background-color: #fefefe00;
+
+  @include tablet {
+    transform: translate(20%, 47%);
+  }
+  @include desktop {
+    transform: translate(20%, 50%);
+  }
+  .modal-content {
+    background-color: var(--white);
+    margin: auto !important;
+    box-shadow: 2px 2px 3px lightgrey;
+    width: 95% !important;
+    border-radius: 23px;
+
+    @include tablet {
+      width: 90% !important;
+    }
+    @include desktop {
+      width: 90% !important;
+    }
+
+    .close {
+      color: #aaaaaa;
+      float: right;
+      margin: 10px;
+      i {
+        float: right;
+      }
+    }
+  }
+
+  #titelModal {
+   font-size: 5vw;
+  
+   
+   @include tablet {
+     font-size: 3vw;
+   }
+   @include desktop {
+    padding-bottom: 27px;
+    font-size: 2.5vw;
+   }
+  }
+  #pModal {
+    background: var(--background-two);
+    padding: 5px;
+    font-size: 2.5vw;
+    @include tablet {
+      font-size: 2vw;
+    }
+    @include desktop {
+      font-size: 1.1vw;
+    }
+   
+  }
+  span {
+    color: var(color--black) !important;
+    padding: 10px;
+    font-weight: 600;
+    text-transform: initial; 
+    display: block;
+  }
+ 
+}

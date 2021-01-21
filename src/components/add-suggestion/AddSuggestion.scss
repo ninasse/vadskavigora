@@ -1,0 +1,56 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/mixins.scss';
+
+#suggestionContainer {
+    @include desktop {
+        display: flex;
+    }
+
+    #addSuggestion {
+    
+        @include desktop {
+            width: 100%;
+        }
+    }
+}
+
+#inputDesc {
+    height: 100px;
+    resize: none;
+    font-family:"Arial";  
+   font-size: 12px;  
+   border: 2px solid var(--color-two);
+}
+#reviewSuggestion {
+max-width: 100%;
+    h3 {
+        font-weight: bold;
+    }
+    p:first-child {
+        word-break: break-all;
+    }
+ 
+}
+
+#reviewSuggestion {
+
+    @include desktop;
+    width: 50%;
+}
+
+.inputSectionSugg {
+    @include desktop {
+        width: 50%;
+    }
+}
+
+#saveBtnSugg {
+      width: 45%;
+      margin-top: 20px;
+  }
+ 
+  #thanks {
+      font-weight: 700;
+      color: red;
+      font-size: 18px;
+  }

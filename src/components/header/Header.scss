@@ -1,0 +1,19 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/colors.scss';
+.linkToAdmin{
+     text-decoration: none;
+}
+#buttonAdmin {
+    display: block;
+    float: revert;
+    font-weight: 600;
+   
+}
+img {
+    width: 40%;
+    margin-top: 20px;
+
+    @include desktop {
+        width: 10%;
+    }
+}

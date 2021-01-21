@@ -1,0 +1,53 @@
+@import "src/styles/mixins.scss";
+@import "src/styles/colors.scss";
+
+#inlog-info {
+  background: transparent;
+  width: 90%;
+  height: 3vh;
+  z-index: 1;
+  top: 0;
+  position: fixed;
+  background-color: var(--white);
+  display: flex;
+  margin-left: 40px;
+  margin-top: 5px;
+
+  @include desktop {
+    width: 95%;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    @include tablet {
+      width: 100%;
+    }
+
+    div {
+      font-weight: 600;
+      font-size: 10px;
+      @include tablet {
+        font-size: 14px;
+      }
+    }
+  }
+}
+#adminSignOutButton {
+  width: 20%;
+  background: #8bd9fd !important;
+  text-transform: uppercase;
+  font-size: 1.8vw;
+  border-radius: 20px;
+  margin-top: 0.5vh;
+  @include tablet {
+    font-size: 1vw;
+    margin-top: unset;
+  }
+  @include desktop {
+    width: 10%;
+    font-size: 0.7vw;
+    margin-top: 1vh;
+  }
+}

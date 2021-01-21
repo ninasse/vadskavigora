@@ -1,0 +1,97 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mixins.scss";
+
+#categoryComp {
+  width: 100%;
+  @include tablet {
+    display: flex;
+  }
+}
+.categoryDiv:first-child {
+  @include tablet {
+    margin-right: 5px;
+  }
+}
+.categoryDiv:last-child {
+  @include tablet {
+    margin-left: 5px;
+  }
+}
+
+.categoryDiv {
+  width: 100%;
+  justify-content: space-between;
+  overflow: hidden;
+  display: flex;
+
+  button {
+    width: 50%;
+    text-transform: uppercase;
+  }
+
+  .btnClicked {
+   font-size: 22px;
+ /*   text-decoration: underline; */
+    width: 100%;
+        #alla {
+          box-shadow: 10px 7px 14px -2px rgba(0,0,0,0.41)
+
+        }
+        #inomhus {
+          box-shadow: -10px 7px 14px -2px rgba(0,0,0,0.41);
+
+        }
+        #utomhus {
+          box-shadow: 10px -7px 14px -2px rgba(0,0,0,0.41);
+        }
+        #baka {
+            box-shadow: -10px -7px 14px -2px rgba(0,0,0,0.41);
+        }
+  }
+  .unclicked {
+    box-shadow: unset;
+  }
+
+  /*  @include tablet {
+        display: flex;
+    } */
+  @include tablet {
+    display: flex;
+  }
+}
+#alla {
+  background: var(--color-one);
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  @include tablet {
+    margin-bottom: unset;
+  }
+}
+#inomhus {
+  background: var(--color-two);
+  margin-left: 5px;
+  margin-bottom: 5px;
+
+  @include tablet {
+    margin-bottom: unset;
+  }
+}
+#utomhus {
+  background: var(--color-three);
+  margin-top: 5px;
+  margin-right: 5px;
+
+  @include tablet {
+    margin-top: unset;
+  }
+}
+#baka {
+  background: var(--color-four);
+  margin-left: 5px;
+  margin-top: 5px;
+
+  @include tablet {
+    margin-top: unset;
+  }
+}
