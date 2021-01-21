@@ -13,7 +13,7 @@
 
             .headerText {
             font-family: 'Raleway Dots';
-            font-size: 11px;
+            font-size: 3vw;
             text-transform: uppercase;
             letter-spacing: 1;
             color: var(--black);
@@ -22,12 +22,12 @@
             display: block;
 
            @include tablet {
-               width: 60%;
-               font-size: 14px;
+               width: 70%;
+               font-size: 2vw; 
            } 
             @include desktop {
             width: 30%;
-            font-size: 16px; 
+           font-size: 1vw; 
             }
         
         } 

@@ -4,7 +4,7 @@
 
 #inlog-info {
     background:transparent;
-    width: 60%;
+    width: 90%;
     height: 3vh;
     z-index: 1;
     top: 0;
@@ -14,11 +14,15 @@
     margin-left: 40px;
     margin-top: 5px;
     
+    @include desktop {
+        width: 95%;
+    }
     
    
     div {
-        
-        display: contents;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
         
         div {
             font-weight: 600;
@@ -31,20 +35,19 @@
     }
 }
 #adminSignOutButton{
-    width: 25%;
+    width: 20%;
     background: #8bd9fd!important;
     text-transform: uppercase;
-    font-size: 8px;
-    height: 2vh;
+    font-size: 1.8vw;
     border-radius: 20px;
-    margin-left: 15px;
-    margin-top: 1vh;
+    margin-top: 0.5vh;
     @include tablet {
-        font-size: 10px;
+        font-size: 1vw;
         margin-top: unset;
     }
     @include desktop {
-        width: 15%;
+        width: 10%;
+        font-size: 0.7vw;
         margin-top: 1vh;
     }
 }
