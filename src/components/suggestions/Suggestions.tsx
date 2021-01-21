@@ -27,7 +27,6 @@ export default function Suggestions (){
     }, []); 
 
     function deleteSuggestion(e: MouseEvent<HTMLButtonElement>){
-        console.log(e)
         const id = String(e);
        
        suggestionsRef.orderByChild('ID').equalTo(id).on('value', (snapshot)=> {

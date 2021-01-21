@@ -22,11 +22,10 @@ export default function SuggestionComp(){
         <HeaderText/>
             <div>
                 <div className="goBack">
-                <Link to="/"><button>Tillbaka</button></Link>
+                    <Link to="/"><button>Tillbaka</button></Link>
                 </div>
             </div>
-            <div id="suggestionComp">
-                
+            <div id="suggestionComp">                
                 <AddSuggestion addSuggestion={saveSuggestion}></AddSuggestion>
             </div>
         </>    

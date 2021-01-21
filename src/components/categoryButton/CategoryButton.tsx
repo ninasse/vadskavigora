@@ -34,7 +34,6 @@ export default function CategoryButton(props: ICategoryButtonsProps){
     
      useEffect(() => {
         if(selectedCategory) {
-            console.log(selectedCategory);
             sendCategory();
             setSelectedCategory('');   
         }

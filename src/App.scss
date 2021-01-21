@@ -1,26 +1,19 @@
-
- .App {
-   display: flex;
-   flex-direction: column;
+.App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  font-family: 'Raleway Dots';
-/*   overflow: scroll; */
-  
+  font-family: "Raleway Dots";
+  /*   overflow: scroll; */
+}
+main {
+  flex: 1 0 auto;
+  min-height: 70vh;
+}
+body {
+  font-family: "Raleway Dots";
+}
 
- }
- main {
-   flex: 1 0 auto;
-   min-height: 100vh;
-   
- } 
- body {
-  font-family: 'Raleway Dots';
-
- }
-
- button {
-   border: none;
-   outline: none;
-   
- }
- 
+button {
+  border: none;
+  outline: none;
+}

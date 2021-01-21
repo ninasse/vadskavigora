@@ -20,7 +20,6 @@ export default function Home(){
         setIsCategorySelected(isSelected);
         
     }
-console.log(selectedActivity);
     useEffect(() => {
         setSelectedActivity(new Activity())
         if(selectedCategory !== 'alla'){
