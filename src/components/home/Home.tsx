@@ -88,7 +88,7 @@ console.log(selectedActivity);
                 <span className="welcomeText"> Känner du dig helt slut på idéer och barnen klättrar på väggarna? </span>
                 <span className="welcomeText">Låt oss hjälpa dig!</span>
             </div></div>: <div className='dontShow'></div>}
-                {selectedActivity.title === '' && searchDone ? <div id='categoryPresentation'>{selectedCategory}</div>: null}
+                {selectedActivity.title === '' && searchDone ? <div id='categoryPresentation'> {selectedCategory}</div>: null}
                 {allActivities.length <= 0  && searchDone ? <div>Hoppsan! Finns inget roligt att visa just nu...</div>: null}
                 {selectedActivity.title !== '' && allActivities.length > 0 && searchDone? 
                     <div id="textPresentation">
@@ -102,7 +102,7 @@ console.log(selectedActivity);
                 </div>}
             </div>
             <div className='getActivityButton'>
-                {searchDone? <button type='button' className="btn-new" onClick={searchAgain}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
+                {searchDone && selectedActivity.title !== '' ? <button type='button' className="btn-new" onClick={searchAgain}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
             </div>  
         </div>
         

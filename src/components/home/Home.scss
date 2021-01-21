@@ -123,3 +123,14 @@
   font-size: 3vh;
   color: var(--color-delete);
 }
+#categoryPresentation {
+  font-family: 'Helvetica Neue';
+  font-weight: 300;
+  font-size: 12vw;
+  width: 100%;
+  margin: 0 auto;
+  text-transform: uppercase;
+  @include desktop {
+    font-size: 7vw;
+  }
+}
