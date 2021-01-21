@@ -20,7 +20,7 @@ export default function Home(){
         setIsCategorySelected(isSelected);
         
     }
-
+console.log(selectedActivity);
     useEffect(() => {
         setSelectedActivity(new Activity())
         if(selectedCategory !== 'alla'){
@@ -88,8 +88,9 @@ export default function Home(){
                 <span className="welcomeText"> Känner du dig helt slut på idéer och barnen klättrar på väggarna? </span>
                 <span className="welcomeText">Låt oss hjälpa dig!</span>
             </div></div>: <div className='dontShow'></div>}
+                {selectedActivity.title === '' && searchDone ? <div id='categoryPresentation'>{selectedCategory}</div>: null}
                 {allActivities.length <= 0  && searchDone ? <div>Hoppsan! Finns inget roligt att visa just nu...</div>: null}
-                {selectedActivity && allActivities.length > 0 && searchDone? 
+                {selectedActivity.title !== '' && allActivities.length > 0 && searchDone? 
                     <div id="textPresentation">
                         <span id="activityTitle"> <div>{selectedActivity.title}</div> </span>
                         <div id="activityDesc"> {selectedActivity.description} </div>
@@ -97,12 +98,12 @@ export default function Home(){
                         {selectedActivity.link ? <a href={selectedActivity.link}>Mer information</a> : null }
                         </div>
                     </div>
-               : null} 
+               :null} 
                 </div>}
             </div>
             <div className='getActivityButton'>
                 {searchDone? <button type='button' className="btn-new" onClick={searchAgain}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
-            </div>   
+            </div>  
         </div>
         
     )
