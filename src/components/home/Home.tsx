@@ -4,7 +4,7 @@ import {firestore} from './../../../src/firebase';
 import Activity from '../../models/Activity';
 import './Home.scss';
 import CategoryButton from '../categoryButton/CategoryButton';
-import Banner from '../banner/Banner';
+
 
 export default function Home(){
 
@@ -101,7 +101,7 @@ export default function Home(){
             <div className='getActivityButton'>
                 {searchDone? <button type='button' className="btn-new" onClick={searchAgain}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
             </div>
-            <Banner />
+            
         </div>
         
     )

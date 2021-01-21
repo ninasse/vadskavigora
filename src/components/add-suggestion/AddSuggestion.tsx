@@ -46,7 +46,7 @@ export default function AddSuggestion(props: IAddSuggestionProps){
     }
     setTimeout(() => {
         setShowThanks(false);
-    }, 3000);
+    }, 10000);
 
     return(
     <React.Fragment>

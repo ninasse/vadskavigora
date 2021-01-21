@@ -40,6 +40,9 @@
           @include tablet {
             font-size: 4vh;
           }
+          @include desktop {
+            font-size: 3vh;
+          }
         }
       }
       .dontShow {
@@ -87,6 +90,9 @@
     @include tablet {
       margin-top: 20px;
     }
+    .getActivityButton:hover {
+      box-shadow: 2px 2px 2px;
+    }
 
     .btn-new {
       background: var(--color-one);
@@ -99,6 +105,9 @@
       @include tablet {
         font-size: 3vh;
       }
+    }
+    .btn-new:hover {
+      box-shadow: 2px 2px 2px;
     }
   }
 }

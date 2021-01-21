@@ -58,19 +58,22 @@ export default function Suggestions (){
                {suggestion.ID}> 
                     <div> 
                        <div>
-                            <button className="viewBtn" onClick={()=>openModal(suggestion.ID)}><i className="fa fa-eye fa-2x"></i></button>
+                            <button className="viewBtn" onClick={()=>openModal(suggestion.ID)}>Granska</button>
                         </div>         
                         <h3>{suggestion.title}</h3>                   
                    </div>               
                     <div className="hiddenModal" id={suggestion.ID}>
                         <div className="modal-content">
-                            <span className="close" onClick={() =>closeModal(suggestion.ID)}>&times;</span>
+                        <div className="close" onClick={() =>closeModal(suggestion.ID)}><i className="fa fa-times fa-2x"></i></div>
                             <h3>{suggestion.title}</h3> 
-                            <p>{suggestion.description}</p>
+                            <p id="pModal">{suggestion.description}</p>
                             <span>{suggestion.link}</span> 
-                            <button id={suggestion.ID} onClick={()=> deleteSuggestion(suggestion.ID)} className="deleteButton deletesugg">
-                                Radera
-                            </button>
+                            
+                              <button id={suggestion.ID} onClick={()=> deleteSuggestion(suggestion.ID)} className="deleteButton">
+                            <i className="fa fa-trash fa-2x"></i>
+                            </button>  
+                            
+                            
                         </div>
                     </div>
                 </li>
