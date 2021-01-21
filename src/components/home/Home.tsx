@@ -18,9 +18,11 @@ export default function Home(){
     function filterCategory(category: string, isSelected: boolean){
         setSelectedCategory(category);
         setIsCategorySelected(isSelected);
+        
     }
 
     useEffect(() => {
+        setSelectedActivity(new Activity())
         if(selectedCategory !== 'alla'){
             firestore
             .collection('activities').where('category', 'array-contains', selectedCategory)
@@ -64,15 +66,15 @@ export default function Home(){
     }
     
     function searchAgain(){
-        if(searchDone){    
+        if(searchDone){  
             setIsCategorySelected(true);
-            getActivity();
+            getActivity();    
         }
     }
 
     if(allActivities.length > 0 && isCategorySelected){
         getActivity();
-        setIsCategorySelected(false);     
+        setIsCategorySelected(false); 
     } 
 
     return(
@@ -100,8 +102,7 @@ export default function Home(){
             </div>
             <div className='getActivityButton'>
                 {searchDone? <button type='button' className="btn-new" onClick={searchAgain}>Ge mig något roligare!</button> : <button type='button' className="btn-new" onClick={getActivity}>Ge mig nåt kul!</button>}
-            </div>
-            
+            </div>   
         </div>
         
     )
