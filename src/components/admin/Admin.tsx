@@ -51,7 +51,7 @@ export default function Admin(){
             {   <div id="inlog-info">
                 {currentUser ? 
                     <div>
-                        <div>Inloggad som: {userEmail}
+                        <div>{userEmail}
                         </div>
                         <button type='button' id='adminSignOutButton' onClick={signOut}>Logga ut</button>
                     </div> : null} 
