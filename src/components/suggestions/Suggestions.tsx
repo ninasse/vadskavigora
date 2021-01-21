@@ -11,6 +11,7 @@ export default function Suggestions (){
     const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
     const [isClicked, setIsClicked] = useState(false);  
     const suggestionsRef = database.ref('Suggestions');
+  
 
     useEffect(() => {
     
@@ -39,7 +40,7 @@ export default function Suggestions (){
         setIsClicked(true)
         const modal: any = document.getElementById(String(e)); 
         modal.className = 'modal'
-        console.log(e)
+         
     }
 
     function closeModal(e: MouseEvent<HTMLElement>) {

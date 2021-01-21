@@ -46,12 +46,9 @@ export default function Admin(){
     }, [isSaved]);
 
     return (
+        
         <React.Fragment>
-           <div>
-           
-        <AddActivity addActivity={saveActivity}></AddActivity>
-        <Suggestions></Suggestions>
-          {   <div id="inlog-info">
+            {   <div id="inlog-info">
                 {currentUser ? 
                     <div>
                         <div>Inloggad som: {userEmail}
@@ -59,6 +56,11 @@ export default function Admin(){
                         <button type='button' id='adminSignOutButton' onClick={signOut}>Logga ut</button>
                     </div> : null} 
             </div> }
+           <div>
+        
+        <AddActivity addActivity={saveActivity}></AddActivity>
+        <Suggestions></Suggestions>
+    
          </div>
         </React.Fragment>
     )

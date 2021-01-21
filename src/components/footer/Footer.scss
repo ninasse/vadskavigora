@@ -1,12 +1,12 @@
 #footer {
   background: var(--white);
-  position: fixed;
-  bottom: 0px;
   width: 100%;
-  height: 10vh;
+  height: 9vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-around; 
+  flex-shrink: 0;
+  margin-top: 4vh;
 
   .footerContent {
     display: flex;
@@ -24,6 +24,7 @@ button {
   background: 000000;
   border: none;
   font-weight: 600;
+  text-transform: uppercase;
 }
 #buttonAdmin {
   border-bottom: 2px #a1cdce;
