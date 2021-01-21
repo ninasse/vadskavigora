@@ -66,7 +66,7 @@ export default function Suggestions (){
                     <div className="hiddenModal" id={suggestion.ID}>
                         <div className="modal-content">
                         <div className="close" onClick={() =>closeModal(suggestion.ID)}><i className="fa fa-times fa-2x"></i></div>
-                            <h3>{suggestion.title}</h3> 
+                            <h3 id="titelModal">{suggestion.title}</h3> 
                             <p id="pModal">{suggestion.description}</p>
                             <span>{suggestion.link}</span> 
                             
