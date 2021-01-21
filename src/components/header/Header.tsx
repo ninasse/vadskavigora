@@ -8,19 +8,17 @@ export default function Header(){
     return(
         <React.Fragment>
             <div>
-                <Link className="linkToAdmin" to="/admin"><button id="buttonAdmin"><i className="fa fa-lock"></i></button></Link>
-                
+                <Link className="linkToAdmin" to="/admin">
+                    <button id="buttonAdmin">
+                        <i className="fa fa-lock"></i>
+                    </button>
+                </Link>                
             </div>
             <div id="headerDiv">
             <Link to="/">
                 <img src={headerLogo} alt="Logo" />
-            </Link>  
-           
-        
-        </div> 
-        
-        </React.Fragment>
-        
-       
+            </Link>        
+        </div>         
+        </React.Fragment>       
     )
 }

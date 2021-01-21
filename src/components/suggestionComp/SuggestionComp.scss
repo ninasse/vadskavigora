@@ -1,12 +1,8 @@
-@import 'src/styles/colors.scss';
-@import 'src/styles/mixins.scss';
-
+@import "src/styles/colors.scss";
+@import "src/styles/mixins.scss";
 
 #suggestionComp {
-    background: var(--background-one);
-    min-height: 700px;
-    padding-top: 15px;
-
-       
-  
+  background: var(--background-one);
+  min-height: 55vh;
+  padding-top: 15px;
 }

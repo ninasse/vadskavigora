@@ -45,10 +45,9 @@ export default function Admin(){
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSaved]);
 
-    return (
-        
+    return (    
         <React.Fragment>
-            {   <div id="inlog-info">
+            {<div id="inlog-info">
                 {currentUser ? 
                     <div>
                         <div>{userEmail}
@@ -56,12 +55,10 @@ export default function Admin(){
                         <button type='button' id='adminSignOutButton' onClick={signOut}>Logga ut</button>
                     </div> : null} 
             </div> }
-           <div>
-        
-        <AddActivity addActivity={saveActivity}></AddActivity>
-        <Suggestions></Suggestions>
-    
-         </div>
+            <div>        
+                <AddActivity addActivity={saveActivity}></AddActivity>
+                <Suggestions></Suggestions>    
+            </div>
         </React.Fragment>
     )
 }

@@ -1,71 +1,72 @@
-@import 'src/styles/colors.scss';
-@import 'src/styles/mixins.scss';
+@import "src/styles/colors.scss";
+@import "src/styles/mixins.scss";
 
 .goBack {
-    width: 140px;
-    background: var(--color-one);
-    button{
-         text-transform: uppercase;
-         font-size: 14px;
-         @include tablet {
-            font-size: 22px;
-         }
+  width: 140px;
+  background: var(--color-one);
+  button {
+    text-transform: uppercase;
+    font-size: 14px;
+    @include tablet {
+      font-size: 22px;
     }
+  }
   @include tablet {
-      width: 200px;
-      height: 30px;
-  } 
+    width: 200px;
+    height: 30px;
+  }
 }
 
 #aboutUsContainer {
-    background: var(--background-one);
-    height: 70vh;
-    padding-top: 60px;
+  background: var(--background-one);
+  height: 65vh;
+  padding-top: 60px;
+  overflow: scroll;
+
+  @include tablet {
+    padding-top: 40px;
+    height: 85vh;
+  }
+  @include desktop {
+    height: 65vh;
+  }
+
+  #photoContainer {
+    display: flex;
+    justify-content: space-around;
 
     @include tablet {
-        padding-top: 40px;
+      justify-content: center;
     }
 
-    #photoContainer {
-        display: flex;
-        justify-content: space-around;
-        
-        @include tablet {
-        justify-content: center;
-        }
-    
-        @include desktop {
-            overflow: hidden;
-        }
-        img {
-            @include desktop{
-              width: 20%;  
-            }  
-        }
+    @include desktop {
+      overflow: hidden;
     }
-           
-     
-
-    #aboutUsTextC {
-        padding-top: 40px;
-
-        .aboutUsText {
-            font-weight: 600;
-            width: 70%;
-            display: block;
-            margin-top: 40px;
-            margin: 0 auto;
-            font-size: 4vw;
-
-            @include tablet {
-                width: 60%;
-
-            }
-            @include desktop {
-                width: 40%;
-                font-size: 1.5vw;
-            }
-        } 
+    img {
+      @include desktop {
+        width: 20%;
+      }
     }
+  }
 
+  #aboutUsTextC {
+    padding-top: 40px;
+
+    .aboutUsText {
+      font-weight: 600;
+      width: 70%;
+      display: block;
+      margin-top: 40px;
+      margin: 0 auto;
+      font-size: 4vw;
+
+      @include tablet {
+        width: 60%;
+      }
+      @include desktop {
+        width: 40%;
+        font-size: 1.5vw;
+      }
+    }
+  }
 }
