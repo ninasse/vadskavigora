@@ -107,6 +107,7 @@
       }
       @include desktop {
         font-size: 3vh;
+        width: 50%;
       }
       &:hover{
           font-size: 3.1vh;

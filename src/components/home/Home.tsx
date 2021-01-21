@@ -95,7 +95,7 @@ console.log(selectedActivity);
                         <span id="activityTitle"> <div>{selectedActivity.title}</div> </span>
                         <div id="activityDesc"> {selectedActivity.description} </div>
                         <div id="activityLink"> 
-                        {selectedActivity.link ? <a href={selectedActivity.link}>Mer information</a> : null }
+                        {selectedActivity.link ? <a href={selectedActivity.link} target="_blank">Mer information</a> : null }
                         </div>
                     </div>
                :null} 
