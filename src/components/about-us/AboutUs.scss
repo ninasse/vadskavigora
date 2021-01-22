@@ -3,7 +3,7 @@
 
 .goBack {
   width: 140px;
-  background: var(--color-one);
+  background: var(--color-two);
   button {
     text-transform: uppercase;
     font-size: 14px;
@@ -19,7 +19,7 @@
 
 #aboutUsContainer {
   background: var(--background-one);
-  height: 65vh;
+  min-height: 75vh;
   padding-top: 60px;
   overflow: scroll;
 
@@ -28,7 +28,7 @@
     height: 85vh;
   }
   @include desktop {
-    height: 65vh;
+   height: 70vh;
   }
 
   #photoContainer {
@@ -53,7 +53,7 @@
     padding-top: 40px;
 
     .aboutUsText {
-      font-weight: 600;
+      font-weight: 350;
       width: 70%;
       display: block;
       margin-top: 40px;
@@ -62,6 +62,7 @@
 
       @include tablet {
         width: 60%;
+        font-size: 3.5vw;
       }
       @include desktop {
         width: 40%;

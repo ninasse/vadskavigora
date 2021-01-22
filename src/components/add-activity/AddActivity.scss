@@ -3,7 +3,7 @@
 
 label {
     color: var(--black);
-    font-weight: 600;
+    font-weight: 350;
     width: 100%;
 
     p {
@@ -12,6 +12,9 @@ label {
         text-align: left;
         font-size: 12px;
         padding-left: 20px;
+        @include desktop {
+            padding-left: 40px !important;
+        }
 
     }
 }
@@ -39,7 +42,7 @@ label {
 fieldset {
     border: unset;
   p {
-      font-weight: 600;
+      font-weight: 350;
       font-size: 14px;
       letter-spacing: 1;
       text-transform: uppercase;
@@ -66,7 +69,7 @@ fieldset {
     width: 70%;
     border-radius:10px;
     height: 40px; 
-    font-weight: 600;
+    font-weight: 350;
 
     @include tablet {
         width: 50%;
