@@ -29,7 +29,7 @@
     height: 85vh;
   }
   @include desktop {
-   height: 70vh;
+    height: 70vh;
   }
 
   #photoContainer {
@@ -44,6 +44,7 @@
       overflow: hidden;
     }
     img {
+      object-fit: contain;
       @include desktop {
         width: 20%;
         object-fit: contain;
@@ -64,7 +65,7 @@
       letter-spacing: 1px;
 
       @include mobile-horizont {
-          font-size: 3.5vw;
+        font-size: 3.5vw;
       }
 
       @include tablet {
@@ -72,7 +73,7 @@
         font-size: 3vw;
       }
       @include tablet-plus {
-          font-size: 2.7vw;
+        font-size: 2.7vw;
       }
       @include tablet-horizont {
         font-size: 2vw;
