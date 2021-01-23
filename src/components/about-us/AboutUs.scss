@@ -4,6 +4,7 @@
 .goBack {
   width: 140px;
   background: var(--color-two);
+  margin-top: 20px;
   button {
     text-transform: uppercase;
     font-size: 14px;
@@ -45,6 +46,7 @@
     img {
       @include desktop {
         width: 20%;
+        object-fit: contain;
       }
     }
   }
@@ -59,10 +61,21 @@
       margin-top: 40px;
       margin: 0 auto;
       font-size: 4vw;
+      letter-spacing: 1px;
+
+      @include mobile-horizont {
+          font-size: 3.5vw;
+      }
 
       @include tablet {
         width: 60%;
-        font-size: 3.5vw;
+        font-size: 3vw;
+      }
+      @include tablet-plus {
+          font-size: 2.7vw;
+      }
+      @include tablet-horizont {
+        font-size: 2vw;
       }
       @include desktop {
         width: 40%;

@@ -28,9 +28,14 @@ ul {
     margin: 5px;
     flex-direction: column;
     border-radius: 20px;
-
+    @include tablet {
+      width: 48%;
+    }
+    @include tablet-horizont {
+      width: 32%;
+    }
     @include desktop {
-      width: 50vh;
+      width: 24%;
       height: 15vh;
     }
     h3 {

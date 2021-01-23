@@ -21,26 +21,26 @@
 }
 button {
   font-family: "Trebuchet MS";
-  font-size: 4.5vw;
+  font-size: 4.2vw;
   color: 000000;
   background: 000000;
   border: none;
   font-weight: 350;
   text-transform: uppercase;
   @include mobile-horizont {
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
      @include tablet {
       font-size: 3vw;
     } 
     @include tablet-plus {
-      font-size: 3vw;
+      font-size: 2.3vw;
     }
     @include tablet-horizont {
       font-size: 2vw;
     }
     @include desktop {
-      font-size: 1.6vw;
+      font-size: 1.4vw;
     }
 }
 #buttonAdmin {

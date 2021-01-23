@@ -81,20 +81,22 @@
           display: block;
           font-weight: 350;
           letter-spacing: 1px;
-          font-size: 4.5vw;
+          font-size: 3.6vw;
 
           @include mobile-horizont {
-            font-size: 4.1vw;
+            font-size: 3.2vw;
           }
 
           @include tablet {
-            font-size: 3.2vw;
-            font-weight: 350;
-            padding-top: 30px;
-            padding-left: 160px;
-            padding-right: 160px;
+            font-size: 2.5vw;
+            }
+            @include tablet-plus{
+              font-size: 2vw;
             }
             @include tablet-horizont {
+              font-size: 1.7vw;
+            }
+            @include desktop {
               font-size: 1.4vw;
             }
            
@@ -126,9 +128,17 @@
       width: 98%;
       @include mobile-horizont {
         font-size: 4.5vw;
+        width: 89%;
       }
       @include tablet {
         font-size: 3.5vh;
+        width: 79%;
+      }
+      @include tablet-plus{
+        width: 69%;
+      }
+      @include tablet-horizont{
+        width:59%;
       }
       @include desktop {
         font-size: 3vh;
