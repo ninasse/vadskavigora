@@ -6,14 +6,26 @@
 #buttonAdmin {
     display: block;
     float: revert;
-    font-weight: 600;
+    font-weight: 350;
    
 }
 img {
     width: 40%;
     margin-top: 20px;
+    @include mobile-horizont {
+        width:35%;
+    }
+    @include tablet {
+        width: 30%;
+    }
+    @include tablet-plus {
+        width: 25%;
+    }
+    @include tablet-horizont {
+        width: 20%;
+    }
 
     @include desktop {
-        width: 10%;
+        width: 15%;
     }
 }

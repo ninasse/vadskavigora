@@ -94,7 +94,7 @@ export default function Home(){
                         <span id="activityTitle"> <div>{selectedActivity.title}</div> </span>
                         <div id="activityDesc"> {selectedActivity.description} </div>
                         <div id="activityLink"> 
-                        {selectedActivity.link ? <a href={selectedActivity.link} target="_blank">Mer information</a> : null }
+                        {selectedActivity.link ? <p>Läs mer <a href={selectedActivity.link} target="_blank">här!</a></p> : null }
                         </div>
                     </div>
                :null} 

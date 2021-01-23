@@ -22,18 +22,18 @@
     justify-content: center;
     .activityContainer {
       border: 2px black;
-      font-weight: 600;
+      font-weight: 350;
       color: var(--black);
       display: block;
+
       #welcomeMsg {
         padding: 2%;
         .welcomeText {
-          font-family: "Raleway Dots";
-          font-size: 4vw;
-          text-transform: uppercase;
+          font-family: "Trebuchet MS";
+          font-size: 5vw;
           letter-spacing: 1;
           color: var(--black);
-          font-weight: 600;
+          font-weight: 350;
           display: flex;
           flex-direction: column;
           margin-bottom: 3vh;
@@ -41,7 +41,7 @@
             font-size: 4vh;
           }
           @include desktop {
-            font-size: 3vh;
+            font-size: 4.3vh;
           }
         }
       }
@@ -50,37 +50,61 @@
         max-height: 0;
       }
       #textPresentation {
+        
         height: 40vh;
         justify-content: space-around;
         display: flex;
         flex-direction: column;
 
         #activityTitle {
-          font-size: 30px;
-          font-weight: bold;
-
+          font-size: 8vw;
+          font-weight: 400;
+          @include mobile-horizont {
+            font-size: 7.3vw;
+          }
           @include tablet {
-            font-size: 40px;
+            font-size: 7vw;
+          }
+          @include tablet-plus {
+            font-size: 6vw;
+          }
+          @include tablet-horizont {
+            font-size: 5vw;
+          }
+          @include desktop{
+            font-size: 3.7vw;
           }
         }
 
         #activityDesc {
           padding: 15px;
           display: block;
+          font-weight: 350;
+          letter-spacing: 1px;
+          font-size: 3.6vw;
+
+          @include mobile-horizont {
+            font-size: 3.2vw;
+          }
 
           @include tablet {
-            font-size: 18px;
-            padding-top: 30px;
-            padding-left: 160px;
-            padding-right: 160px;
-          }
+            font-size: 2.5vw;
+            }
+            @include tablet-plus{
+              font-size: 2vw;
+            }
+            @include tablet-horizont {
+              font-size: 1.7vw;
+            }
+            @include desktop {
+              font-size: 1.4vw;
+            }
+           
+          
         }
         a {
           color: var(--black);
 
-          @include tablet {
-            font-size: 14px;
-          }
         }
       }
     }
@@ -102,8 +126,19 @@
       text-transform: uppercase;
       font-size: 5vw;
       width: 98%;
+      @include mobile-horizont {
+        font-size: 4.5vw;
+        width: 89%;
+      }
       @include tablet {
-        font-size: 3vh;
+        font-size: 3.5vh;
+        width: 79%;
+      }
+      @include tablet-plus{
+        width: 69%;
+      }
+      @include tablet-horizont{
+        width:59%;
       }
       @include desktop {
         font-size: 3vh;
@@ -120,13 +155,13 @@
 }
 #errMessage {
   padding: 2vh;
-  font-weight: 600;
+  font-weight: 350;
   font-size: 3vh;
   color: var(--color-delete);
 }
 #categoryPresentation {
-  font-family: 'Helvetica Neue';
-  font-weight: 300;
+  font-family: 'Trebuchet MS';
+  font-weight: 350;
   font-size: 12vw;
   width: 100%;
   margin: 0 auto;
