@@ -1,8 +1,10 @@
 # vadskavigoranu.se
 
+Project built with react.js, TypeScript using Firebase auth(), database(), firestore().
+
 ### project live on: vadskavigoranu.se
 
-Project built with react.js, TypeScript using Firebase auth(), database(), firestore().
+Hosted with firebase hosting.
 
 # React.js
 
