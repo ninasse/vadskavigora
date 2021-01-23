@@ -51,13 +51,13 @@
   
   @include tablet {
     font-size: 2vw;
-    height: 4vh;
+    height: 3vh;
     width: 17%;
     margin-top: unset;
   }
   @include tablet-plus {
     width: 15%;
-    height: 6vh;
+    height: 4vh;
     font-size: 1.7vw;
   }
   @include tablet-horizont {
@@ -66,6 +66,7 @@
   }
   @include desktop {
     width: 10%;
+    height: 3vh;
     font-size: 1vw;
     margin-top: 1vh;
   }
