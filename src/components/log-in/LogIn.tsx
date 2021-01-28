@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import {auth} from '../../firebase'
 import {AuthContext} from '../../contexts/AuthContext';
 import UserData from '../../models/UserData';
+import { Link } from 'react-router-dom';
 import './LogIn.scss';
 
 
@@ -14,17 +15,18 @@ export default function LogIn(){
         new UserData()
       );
     const [error, setError] = useState('');
+    const [isAdmin, setIsAdmin] = useState(false)
 
     function handleOnChange(e: ChangeEvent<HTMLInputElement>){
         e.preventDefault();
         const {name, value} = e.target;
-        setUserValues({[name]: value} as any);    
+        setUserValues({[name]: value} as any);
     }
 
    function handleSignIn(e: MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
         setError('');
-       
+
         auth.signInWithEmailAndPassword(userValues.email , userValues.password).then(res => {
             authContext.setUser(res.user);
             history.push('/admin');
@@ -42,27 +44,42 @@ export default function LogIn(){
                     return
                 } else {
                     setError('Oj då! Något blev tokigt, testa igen om en liten stund.')
-                };                 
+                };
             });
         setUserValues(new UserData());
-    }   
+    }
    return(
         <>
+            <div>
+                <div className="goBack">
+                    <Link to="/"><button>Tillbaka</button></Link>
+                </div>
+            </div>
+
         <h1>Logga in!</h1>
-        {error ? <div className="error-messages">{error}</div> : null}
-        <form>
-            <fieldset>
-                <div>
-                    <label className="login-label" htmlFor="email">E-mail</label>
-                    <input type="text" name="email" className="activity-input inputTitle login-input" defaultValue={userValues.email} onChange={handleOnChange} />
-                </div>
-                <div>
-                    <label className="login-label" htmlFor="Password">Lösenord</label>
-                    <input type="password" className="activity-input inputDesc login-input" name="password" defaultValue={userValues.password} onChange={handleOnChange} />
-                </div>
-                <button type='button' id="loginBtn" className="saveBtn" onClick={handleSignIn}>Logga in!</button>
-            </fieldset>
-        </form>
+        {isAdmin ? <div>
+            {error ? <div className="error-messages">{error}</div> : null}
+                <form>
+                    <fieldset>
+                        <div>
+                            <label className="login-label" htmlFor="email">E-mail</label>
+                            <input type="text" name="email" className="activity-input inputTitle login-input" defaultValue={userValues.email} onChange={handleOnChange} />
+                        </div>
+                        <div>
+                            <label className="login-label" htmlFor="Password">Lösenord</label>
+                            <input type="password" className="activity-input inputDesc login-input" name="password" defaultValue={userValues.password} onChange={handleOnChange} />
+                        </div>
+                        <button type='button' id="loginBtn" className="saveBtn" onClick={handleSignIn}>Logga in!</button>
+                    </fieldset>
+                </form>
+        </div>
+         : <div>
+            <p>Det ser ut som att du vill komma till våra administratörssidor.</p>
+            <p>Är du en av våra administartörer?</p>
+            <Link to="/"><button id="loginBtn">Nej! Ta mig tillbaka så jag kan hitta på nåt kul!</button></Link>
+            <button type="button" id="loginBtn" onClick={() => setIsAdmin(true)}>JA! Logga in!</button>
+        </div>}
+
         </>
     )
 }
