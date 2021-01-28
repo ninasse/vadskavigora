@@ -24,3 +24,5 @@ yarn-error.log*
 
 .eslintcache
 .env.local
+
+admin.log-in.details.txt

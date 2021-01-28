@@ -2,7 +2,7 @@
 
 Project built with react.js, TypeScript using Firebase auth(), database(), firestore().
 
-### project live on: vadskavigoranu.se
+### project live on: https://vadskavigoranu.se/
 
 Hosted with firebase hosting.
 
